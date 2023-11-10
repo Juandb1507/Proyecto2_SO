@@ -10,12 +10,37 @@ package classes;
  * @author juand
  */
 public class Proyecto2_SO {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Crear instancias de las clases necesarias
+        Admin admin = new Admin();
+        AI ai = new AI();
+
+        // Inicializar personajes y colocarlos en las colas
+        admin.initializeCharacters();
+
+        // Simular rondas de la IA
+        for (int round = 1; round <= 5; round++) { // Ejemplo: 5 rondas
+            System.out.println("\n--- Ronda " + round + " ---");
+            
+            // Mostrar las colas antes de la ronda
+            admin.printQueues();
+
+            // Seleccionar personajes para el combate desde las colas
+            Character[] charactersForBattle = admin.selectCharactersForBattle();
+            Character zeldaCharacter = charactersForBattle[0];
+            Character streetFighterCharacter = charactersForBattle[1];
+
+            System.out.println("Inicia el combate: " + zeldaCharacter.getName() + " vs " + streetFighterCharacter.getName());
+
+            // Procesar la batalla en la IA
+            ai.processBattle(zeldaCharacter, streetFighterCharacter);
+
+            // Actualizar las colas después de la ronda
+            admin.updateQueues();
+        }
+
+        // Mostrar las colas al final de la simulación
+        System.out.println("\n--- Colas finales ---");
+        admin.printQueues();
     }
-    
 }

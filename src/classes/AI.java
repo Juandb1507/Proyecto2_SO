@@ -9,5 +9,48 @@ package classes;
  * @author juand
  */
 public class AI {
-    
+    private static final double WIN_PROBABILITY = 0.4;
+    private static final double DRAW_PROBABILITY = 0.27;
+    private static final double NO_COMBAT_PROBABILITY = 0.33;
+
+    public void processBattle(Character zeldaCharacter, Character streetFighterCharacter) {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        double result = Math.random();
+
+        // Utilizamos los puntos únicos para determinar el resultado
+        int zeldaPoints = zeldaCharacter.getUniquePoints();
+        int streetFighterPoints = streetFighterCharacter.getUniquePoints();
+
+        if (result < WIN_PROBABILITY) {
+            handleWinner(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints);
+        } else if (result < WIN_PROBABILITY + DRAW_PROBABILITY) {
+            handleDraw(zeldaCharacter, streetFighterCharacter);
+        } else {
+            handleNoCombat(zeldaCharacter, streetFighterCharacter);
+        }
+    }
+
+    private void handleWinner(Character winner, Character loser, int winnerPoints, int loserPoints) {
+        System.out.println("¡Combate terminado! El ganador es: " + winner.getName() +
+                " (ID: " + winner.getId() + ") con " + winnerPoints + " puntos únicos.");
+       // logica para añadir a la lista de ganadores
+    }
+
+    private void handleDraw(Character character1, Character character2) {
+        System.out.println("¡Combate empatado! Ambos personajes vuelven a la cola de prioridad 1.");
+       // logica para que vulevan a la cola de prioridad 1
+    }
+
+    private void handleNoCombat(Character character1, Character character2) {
+        System.out.println("No puede llevarse a cabo el combate. Ambos personajes van a la cola de refuerzo.");
+        // Se agregan en la cola de refuerzo
+        Admin.reinforcementQueueNintendo.enqueue(character1);
+        Admin.reinforcementQueueBethesda.enqueue(character2);
+    }
 }
+
