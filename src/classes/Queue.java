@@ -8,6 +8,43 @@ package classes;
  *
  * @author juand
  */
-public class Queue {
-    
+public class Queue<T> {
+    private Node<T> front;
+    private Node<T> rear;
+
+    public Queue() {
+        this.front = null;
+        this.rear = null;
+    }
+
+    public boolean isEmpty() {
+        return front == null;
+    }
+
+    public void enqueue(T data) {
+        Node<T> newNode = new Node<>(data);
+        if (isEmpty()) {
+            front = newNode;
+            rear = newNode;
+        } else {
+            rear.setNext(newNode);
+            rear = newNode;
+        }
+    }
+
+    public T dequeue() {
+        if (isEmpty()) {
+            return null;
+        }
+        T data = front.getData();
+        front = front.getNext();
+        if (front == null) {
+            rear = null;
+        }
+        return data;
+    }
+
+    public T peek() {
+        return isEmpty() ? null : front.getData();
+    }
 }
