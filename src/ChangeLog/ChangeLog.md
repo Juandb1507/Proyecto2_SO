@@ -1,5 +1,9 @@
+## [1.0.4] - 09/11/2023 (Juandb1507)
 
-## [1.0.3] - 08/11/2023 (Juandb1507)
+- Desarrollo clase Admin
+- Desarrollo clase AI
+
+## [1.0.3] - 09/11/2023 (Juandb1507)
 
 - Desarrollo clase Personaje 
 
