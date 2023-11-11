@@ -66,6 +66,7 @@ private Character selectCharacterFromQueue(int queueIndex, Queue<Character>... q
         return queues[queueIndex].isEmpty() ? null : queues[queueIndex].dequeue();
 }
 
+// Sube los personajes en la posicion 1 de las colas. 
 public void updateQueues() {
     for (int i = 1; i < 3; i++) {
         Character nintendoCharacter = selectCharacterFromQueue(i, nintendoQueue1, nintendoQueue2, nintendoQueue3);
