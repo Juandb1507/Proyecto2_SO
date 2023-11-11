@@ -10,6 +10,7 @@ package classes;
  * @author juand
  */
 public class Proyecto2_SO {
+
     public static void main(String[] args) {
         // Crear instancias de las clases necesarias
         Admin admin = new Admin();
@@ -21,7 +22,7 @@ public class Proyecto2_SO {
         // Simular rondas de la IA
         for (int round = 1; round <= 5; round++) { // Ejemplo: 5 rondas
             System.out.println("\n--- Ronda " + round + " ---");
-            
+
             // Mostrar las colas antes de la ronda
             admin.printQueues();
 
@@ -30,7 +31,9 @@ public class Proyecto2_SO {
             Character zeldaCharacter = charactersForBattle[0];
             Character streetFighterCharacter = charactersForBattle[1];
 
-            System.out.println("Inicia el combate: " + zeldaCharacter.getName() + " vs " + streetFighterCharacter.getName());
+            if (zeldaCharacter != null && streetFighterCharacter != null) {
+                System.out.println("Inicia el combate: " + zeldaCharacter.getName() + " vs " + streetFighterCharacter.getName());
+            }
 
             // Procesar la batalla en la IA
             ai.processBattle(zeldaCharacter, streetFighterCharacter);

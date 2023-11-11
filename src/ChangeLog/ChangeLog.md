@@ -1,3 +1,8 @@
+## [1.0.5] - 10/11/2023 (srvillarroel)
+
+- Inicio de interfaz 
+- Busqueda de error en la cola 3
+
 ## [1.0.4] - 09/11/2023 (Juandb1507)
 
 - Desarrollo clase Admin

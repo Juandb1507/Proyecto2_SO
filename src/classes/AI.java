@@ -9,6 +9,7 @@ package classes;
  * @author juand
  */
 public class AI {
+
     private static final double WIN_PROBABILITY = 0.4;
     private static final double DRAW_PROBABILITY = 0.27;
     private static final double NO_COMBAT_PROBABILITY = 0.33;
@@ -36,14 +37,14 @@ public class AI {
     }
 
     private void handleWinner(Character winner, Character loser, int winnerPoints, int loserPoints) {
-        System.out.println("¡Combate terminado! El ganador es: " + winner.getName() +
-                " (ID: " + winner.getId() + ") con " + winnerPoints + " puntos únicos.");
-       // logica para añadir a la lista de ganadores
+        System.out.println("¡Combate terminado! El ganador es: " + winner.getName()
+                + " (ID: " + winner.getId() + ") con " + winnerPoints + " puntos únicos.");
+        // logica para añadir a la lista de ganadores
     }
 
     private void handleDraw(Character character1, Character character2) {
         System.out.println("¡Combate empatado! Ambos personajes vuelven a la cola de prioridad 1.");
-       // logica para que vulevan a la cola de prioridad 1
+        // logica para que vulevan a la cola de prioridad 1
     }
 
     private void handleNoCombat(Character character1, Character character2) {
@@ -53,4 +54,3 @@ public class AI {
         Admin.reinforcementQueueBethesda.enqueue(character2);
     }
 }
-
