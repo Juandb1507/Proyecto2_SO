@@ -47,4 +47,15 @@ public class Queue<T> {
     public T peek() {
         return isEmpty() ? null : front.getData();
     }
+    public int length() {
+        int length = 0;
+        Node<T> current = front;
+
+        while (current != null) {
+            length++;
+            current = current.getNext();
+        }
+
+        return length;
+    }
 }
