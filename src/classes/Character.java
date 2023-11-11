@@ -44,7 +44,12 @@ public class Character {
         } else {
             this.exceptional = false;
             // Calcula el nivel de prioridad utilizando un método simplificado
-            this.levelPriority = determineNumSpecialAbilities();
+            if (determineNumSpecialAbilities() == 1){
+                this.levelPriority = 3; //Al solo tener 1 habilidad se setea como Deficiente (Prioridad 3)
+            }
+            else{
+                this.levelPriority = 2; //Al tener 2 habilidades se setea como Promedio(Prioridad 2)
+            }
         }
 
         this.uniquePoints = generateUniquePoints();
