@@ -52,20 +52,21 @@ public class Admin {
         queues[priorityIndex].enqueue(character);
     }
 
-    public Character[] selectCharactersForBattle() {
-        Character[] charactersForBattle = new Character[2];
+public Character[] selectCharactersForBattle() {
+    Character[] charactersForBattle = new Character[2];
 
         charactersForBattle[0] = selectCharacterFromQueue(0, nintendoQueue1, nintendoQueue2, nintendoQueue3);
         charactersForBattle[1] = selectCharacterFromQueue(0, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
 
-        return charactersForBattle;
-    }
+    return charactersForBattle;
+}
 
-    private Character selectCharacterFromQueue(int queueIndex, Queue<Character>... queues) {
+
+private Character selectCharacterFromQueue(int queueIndex, Queue<Character>... queues) {
         return queues[queueIndex].isEmpty() ? null : queues[queueIndex].dequeue();
-    }
+}
 
-    public void updateQueues() {
+public void updateQueues() {
     for (int i = 1; i < 3; i++) {
         Character nintendoCharacter = selectCharacterFromQueue(i, nintendoQueue1, nintendoQueue2, nintendoQueue3);
         if (nintendoCharacter != null) {
@@ -106,8 +107,6 @@ public class Admin {
         }
     }
 }
-
-
 
     private boolean shouldMoveToPriority1() {
         // Devuelve true con un 40% de probabilidad (para sacar de la cola de refuerzo)
