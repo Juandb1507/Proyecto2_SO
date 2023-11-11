@@ -1,6 +1,10 @@
+## [1.0.9] - 10/11/2023 (srvillarroel)
+
+- Si una cola esta vacia ahora agarra al personaje de la cola de abajo. 
+
 ## [1.0.8] - 10/11/2023 (Juandb1507)
 
-- Comabte empatado (ahora los personajes se encolan en la Queue de prioridad 1)
+- Combate empatado (ahora los personajes se encolan en la Queue de prioridad 1)
 
 ## [1.0.7] - 10/11/2023 (srvillarroel)
 
