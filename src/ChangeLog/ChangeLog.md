@@ -1,3 +1,7 @@
+## [1.0.7] - 10/11/2023 (srvillarroel)
+
+- Error de que se suben los personajes en las colas. (Solucionado, metodo updateQueues)
+
 ## [1.0.6] - 10/11/2023 (Juandb1507)
 
 - Error en la cola 3 (Solucionado)

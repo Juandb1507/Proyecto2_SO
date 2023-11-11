@@ -39,7 +39,7 @@ public class Proyecto2_SO {
             ai.processBattle(zeldaCharacter, streetFighterCharacter);
 
             // Actualizar las colas después de la ronda
-            admin.updateQueues();
+//            admin.updateQueues(); ESTO HACE QUE SE SUBAN LAS POSICIONES 1 DE LAS COLAS AL FINAL DE CADA RONDA.
         }
 
         // Mostrar las colas al final de la simulación
