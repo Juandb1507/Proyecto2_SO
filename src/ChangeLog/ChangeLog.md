@@ -1,3 +1,7 @@
+## [1.0.8] - 10/11/2023 (Juandb1507)
+
+- Comabte empatado (ahora los personajes se encolan en la Queue de prioridad 1)
+
 ## [1.0.7] - 10/11/2023 (srvillarroel)
 
 - Error de que se suben los personajes en las colas. (Solucionado, metodo updateQueues)
