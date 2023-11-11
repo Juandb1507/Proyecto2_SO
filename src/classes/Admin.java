@@ -12,6 +12,7 @@ import java.util.Random;
  */
 public class Admin {
 
+    public static int roundCounter = 0;
     public static Queue<Character> nintendoQueue1; // Colas para Nintendo 
     public static Queue<Character> nintendoQueue2;
     public static Queue<Character> nintendoQueue3;
@@ -38,7 +39,7 @@ public class Admin {
     }
 
     public void initializeCharacters() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             Character nintendoCharacter = Character.createZeldaCharacter();
             Character bethesdaCharacter = Character.createStreetFighterCharacter();
 
@@ -47,7 +48,7 @@ public class Admin {
         }
     }
 
-    public void addToQueue(Character character, Queue<Character>... queues) {
+    public static void addToQueue(Character character, Queue<Character>... queues) {
         int priorityIndex = character.getLevelPriority() - 1;
         queues[priorityIndex].enqueue(character);
     }
@@ -57,7 +58,7 @@ public class Admin {
 
         charactersForBattle[0] = selectCharacterFromNextNonEmptyQueue(nintendoQueue1, nintendoQueue2, nintendoQueue3);
         charactersForBattle[1] = selectCharacterFromNextNonEmptyQueue(bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
-
+        
         return charactersForBattle;
     }
 
@@ -69,13 +70,20 @@ public class Admin {
         }
         return null; // Si todas las colas están vacías
     }
-    
+
     // Ya no lo uso para selecionar los personajes de las colas.
     private Character selectCharacterFromQueue(int queueIndex, Queue<Character>... queues) {
         return queues[queueIndex].isEmpty() ? null : queues[queueIndex].dequeue();
     }
 
+    public static void moveCharacterToPriority(Queue<Character> reinforcementQueue, Queue<Character> priorityQueue) {
+        if (!reinforcementQueue.isEmpty()) {
+            Character character = reinforcementQueue.dequeue();
+            priorityQueue.enqueue(character);
+        }
+    }
 // Sube los personajes en la posicion 1 de las colas. 
+
     public void updateQueues() {
         for (int i = 1; i < 3; i++) {
             Character nintendoCharacter = selectCharacterFromQueue(i, nintendoQueue1, nintendoQueue2, nintendoQueue3);
@@ -118,7 +126,20 @@ public class Admin {
         }
     }
 
-    private boolean shouldMoveToPriority1() {
+    public static boolean shouldGenerateCharacters() {
+        // Devolver true con una probabilidad del 80% (Para generar personajes)
+        return new Random().nextInt(100) < 80;
+    }
+
+    public static void generateCharacters() {
+            Character nintendoCharacter = Character.createZeldaCharacter();
+            Character bethesdaCharacter = Character.createStreetFighterCharacter();
+
+            addToQueue(nintendoCharacter, nintendoQueue1, nintendoQueue2, nintendoQueue3);
+            addToQueue(bethesdaCharacter, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
+    }
+
+    public static boolean shouldMoveToPriority1() {
         // Devuelve true con un 40% de probabilidad (para sacar de la cola de refuerzo)
         return new Random().nextInt(100) < 40;
     }
