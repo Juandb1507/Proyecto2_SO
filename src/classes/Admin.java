@@ -38,7 +38,7 @@ public class Admin {
     }
 
     public void initializeCharacters() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             Character nintendoCharacter = Character.createZeldaCharacter();
             Character bethesdaCharacter = Character.createStreetFighterCharacter();
 
@@ -52,20 +52,37 @@ public class Admin {
         queues[priorityIndex].enqueue(character);
     }
 
-public Character[] selectCharactersForBattle() {
-    Character[] charactersForBattle = new Character[2];
+ public Character[] selectCharactersForBattle() {
+        Character[] charactersForBattle = new Character[2];
 
         charactersForBattle[0] = selectCharacterFromQueue(0, nintendoQueue1, nintendoQueue2, nintendoQueue3);
         charactersForBattle[1] = selectCharacterFromQueue(0, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
 
-    return charactersForBattle;
-}
+        // Simulación del combate...
+
+        // Después del combate, probabilidad del 40% de mover un personaje de refuerzo a la cola de prioridad 1
+        if (shouldMoveToPriority1()) {
+            moveCharacterToPriority(reinforcementQueueNintendo, nintendoQueue1);
+        }
+
+        if (shouldMoveToPriority1()) {
+            moveCharacterToPriority(reinforcementQueueBethesda, bethesdaQueue1);
+        }
+
+        return charactersForBattle;
+    }
+
+    private void moveCharacterToPriority(Queue<Character> reinforcementQueue, Queue<Character> priorityQueue) {
+        if (!reinforcementQueue.isEmpty()) {
+            Character character = reinforcementQueue.dequeue();
+            priorityQueue.enqueue(character);
+        }
+    }
 
 
 private Character selectCharacterFromQueue(int queueIndex, Queue<Character>... queues) {
         return queues[queueIndex].isEmpty() ? null : queues[queueIndex].dequeue();
 }
-
 // Sube los personajes en la posicion 1 de las colas. 
 public void updateQueues() {
     for (int i = 1; i < 3; i++) {
