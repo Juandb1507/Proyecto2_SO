@@ -34,6 +34,22 @@ public class AI {
         } else {
             handleNoCombat(zeldaCharacter, streetFighterCharacter);
         }
+        // Después del combate, probabilidad del 40% de mover un personaje de refuerzo a la cola de prioridad 1
+        if (Admin.shouldMoveToPriority1()) {
+            Admin.moveCharacterToPriority(Admin.reinforcementQueueNintendo, Admin.nintendoQueue1);
+        }
+
+        if (Admin.shouldMoveToPriority1()) {
+            Admin.moveCharacterToPriority(Admin.reinforcementQueueBethesda, Admin.bethesdaQueue1);
+        }
+        //Generador de personajes (80% de probabilidad)
+        Admin.roundCounter ++;
+        if (Admin.roundCounter % 2 == 0) { // Se han completado dos rondas
+            if (Admin.shouldGenerateCharacters()) {
+                Admin.generateCharacters();
+                System.out.println("SE GENERARON 2 PERSONAJES NUEVOS!");
+            }
+        }
     }
 
     private void handleWinner(Character winner, Character loser, int winnerPoints, int loserPoints) {

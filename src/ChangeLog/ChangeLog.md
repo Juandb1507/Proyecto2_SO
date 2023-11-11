@@ -1,6 +1,15 @@
+## [1.0.10] - 10/11/2023 (Juandb1507)
+
+- Cola de refuerzo (40% de probabilidad de que 1 personaje en Queue de refuerzo se encole en la Queue de prioridad 1)
+- Se implemento la lógica necesaria para la creación de personajes cada 2 rondas con una probabilidad del 80%
+
+## [1.0.9] - 10/11/2023 (srvillarroel)
+
+- Si una cola esta vacia ahora agarra al personaje de la cola de abajo. 
+
 ## [1.0.8] - 10/11/2023 (Juandb1507)
 
-- Comabte empatado (ahora los personajes se encolan en la Queue de prioridad 1)
+- Combate empatado (ahora los personajes se encolan en la Queue de prioridad 1)
 
 ## [1.0.7] - 10/11/2023 (srvillarroel)
 

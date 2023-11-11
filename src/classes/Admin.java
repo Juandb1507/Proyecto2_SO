@@ -10,8 +10,9 @@ import java.util.Random;
  *
  * @author juand
  */
-
 public class Admin {
+
+    public static int roundCounter = 0;
     public static Queue<Character> nintendoQueue1; // Colas para Nintendo 
     public static Queue<Character> nintendoQueue2;
     public static Queue<Character> nintendoQueue3;
@@ -47,86 +48,98 @@ public class Admin {
         }
     }
 
-    public void addToQueue(Character character, Queue<Character>... queues) {
+    public static void addToQueue(Character character, Queue<Character>... queues) {
         int priorityIndex = character.getLevelPriority() - 1;
         queues[priorityIndex].enqueue(character);
     }
 
- public Character[] selectCharactersForBattle() {
+    public Character[] selectCharactersForBattle() {
         Character[] charactersForBattle = new Character[2];
 
-        charactersForBattle[0] = selectCharacterFromQueue(0, nintendoQueue1, nintendoQueue2, nintendoQueue3);
-        charactersForBattle[1] = selectCharacterFromQueue(0, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
-
-        // Simulación del combate...
-
-        // Después del combate, probabilidad del 40% de mover un personaje de refuerzo a la cola de prioridad 1
-        if (shouldMoveToPriority1()) {
-            moveCharacterToPriority(reinforcementQueueNintendo, nintendoQueue1);
-        }
-
-        if (shouldMoveToPriority1()) {
-            moveCharacterToPriority(reinforcementQueueBethesda, bethesdaQueue1);
-        }
-
+        charactersForBattle[0] = selectCharacterFromNextNonEmptyQueue(nintendoQueue1, nintendoQueue2, nintendoQueue3);
+        charactersForBattle[1] = selectCharacterFromNextNonEmptyQueue(bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
+        
         return charactersForBattle;
     }
 
-    private void moveCharacterToPriority(Queue<Character> reinforcementQueue, Queue<Character> priorityQueue) {
+    private Character selectCharacterFromNextNonEmptyQueue(Queue<Character>... queues) {
+        for (int i = 0; i < queues.length; i++) {
+            if (!queues[i].isEmpty()) {
+                return queues[i].dequeue();
+            }
+        }
+        return null; // Si todas las colas están vacías
+    }
+
+    // Ya no lo uso para selecionar los personajes de las colas.
+    private Character selectCharacterFromQueue(int queueIndex, Queue<Character>... queues) {
+        return queues[queueIndex].isEmpty() ? null : queues[queueIndex].dequeue();
+    }
+
+    public static void moveCharacterToPriority(Queue<Character> reinforcementQueue, Queue<Character> priorityQueue) {
         if (!reinforcementQueue.isEmpty()) {
             Character character = reinforcementQueue.dequeue();
             priorityQueue.enqueue(character);
         }
     }
-
-
-private Character selectCharacterFromQueue(int queueIndex, Queue<Character>... queues) {
-        return queues[queueIndex].isEmpty() ? null : queues[queueIndex].dequeue();
-}
 // Sube los personajes en la posicion 1 de las colas. 
-public void updateQueues() {
-    for (int i = 1; i < 3; i++) {
-        Character nintendoCharacter = selectCharacterFromQueue(i, nintendoQueue1, nintendoQueue2, nintendoQueue3);
-        if (nintendoCharacter != null) {
-            switch (i) {
-                case 1:
-                    nintendoQueue1.enqueue(nintendoCharacter);
-                    break;
-                case 2:
-                    nintendoQueue2.enqueue(nintendoCharacter);
-                    break;
-                case 3:
-                    nintendoQueue3.enqueue(nintendoCharacter);
-                    break;
-                default:
-                    // Manejo si el índice es inesperado, encolarlo en la cola 1 (manejo de error luego lo quitamos)
-                    nintendoQueue1.enqueue(nintendoCharacter);
-                    break;
-            }
-        }
 
-        Character bethesdaCharacter = selectCharacterFromQueue(i, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
-        if (bethesdaCharacter != null) {
-            switch (i) {
-                case 1:
-                    bethesdaQueue1.enqueue(bethesdaCharacter);
-                    break;
-                case 2:
-                    bethesdaQueue2.enqueue(bethesdaCharacter);
-                    break;
-                case 3:
-                    bethesdaQueue3.enqueue(bethesdaCharacter);
-                    break;
-                default:
-                    // Manejo si el índice es inesperado, encolarlo en la cola 1 (manejo de error luego lo quitamos)
-                    bethesdaQueue1.enqueue(bethesdaCharacter);
-                    break;
+    public void updateQueues() {
+        for (int i = 1; i < 3; i++) {
+            Character nintendoCharacter = selectCharacterFromQueue(i, nintendoQueue1, nintendoQueue2, nintendoQueue3);
+            if (nintendoCharacter != null) {
+                switch (i) {
+                    case 1:
+                        nintendoQueue1.enqueue(nintendoCharacter);
+                        break;
+                    case 2:
+                        nintendoQueue2.enqueue(nintendoCharacter);
+                        break;
+                    case 3:
+                        nintendoQueue3.enqueue(nintendoCharacter);
+                        break;
+                    default:
+                        // Manejo si el índice es inesperado, encolarlo en la cola 1 (manejo de error luego lo quitamos)
+                        nintendoQueue1.enqueue(nintendoCharacter);
+                        break;
+                }
+            }
+
+            Character bethesdaCharacter = selectCharacterFromQueue(i, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
+            if (bethesdaCharacter != null) {
+                switch (i) {
+                    case 1:
+                        bethesdaQueue1.enqueue(bethesdaCharacter);
+                        break;
+                    case 2:
+                        bethesdaQueue2.enqueue(bethesdaCharacter);
+                        break;
+                    case 3:
+                        bethesdaQueue3.enqueue(bethesdaCharacter);
+                        break;
+                    default:
+                        // Manejo si el índice es inesperado, encolarlo en la cola 1 (manejo de error luego lo quitamos)
+                        bethesdaQueue1.enqueue(bethesdaCharacter);
+                        break;
+                }
             }
         }
     }
-}
 
-    private boolean shouldMoveToPriority1() {
+    public static boolean shouldGenerateCharacters() {
+        // Devolver true con una probabilidad del 80% (Para generar personajes)
+        return new Random().nextInt(100) < 80;
+    }
+
+    public static void generateCharacters() {
+            Character nintendoCharacter = Character.createZeldaCharacter();
+            Character bethesdaCharacter = Character.createStreetFighterCharacter();
+
+            addToQueue(nintendoCharacter, nintendoQueue1, nintendoQueue2, nintendoQueue3);
+            addToQueue(bethesdaCharacter, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
+    }
+
+    public static boolean shouldMoveToPriority1() {
         // Devuelve true con un 40% de probabilidad (para sacar de la cola de refuerzo)
         return new Random().nextInt(100) < 40;
     }
@@ -134,7 +147,7 @@ public void updateQueues() {
     public void printQueues() {
         System.out.println("Nintendo Queues:");
         printQueues(nintendoQueue1, nintendoQueue2, nintendoQueue3);
-        
+
         System.out.println("\nReinforcement Queue Nintendo:");
         printQueue(reinforcementQueueNintendo);
 
