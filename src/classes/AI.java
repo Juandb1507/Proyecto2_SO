@@ -45,6 +45,8 @@ public class AI {
     private void handleDraw(Character character1, Character character2) {
         System.out.println("¡Combate empatado! Ambos personajes vuelven a la cola de prioridad 1.");
         // logica para que vulevan a la cola de prioridad 1
+        Admin.nintendoQueue1.enqueue(character1);
+        Admin.bethesdaQueue1.enqueue(character2);
     }
 
     private void handleNoCombat(Character character1, Character character2) {
