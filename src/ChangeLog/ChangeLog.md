@@ -1,3 +1,7 @@
+## [1.0.11] - 11/11/2023 (srvillarroel)
+
+- Se adelanto en mayor parte la interfaz, se agrego logica en el Admin para colocar la informacion de las colas en la interfaz.
+
 ## [1.0.10] - 10/11/2023 (Juandb1507)
 
 - Cola de refuerzo (40% de probabilidad de que 1 personaje en Queue de refuerzo se encole en la Queue de prioridad 1)
