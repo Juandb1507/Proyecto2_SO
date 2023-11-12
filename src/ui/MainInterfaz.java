@@ -37,11 +37,23 @@ public class MainInterfaz extends javax.swing.JFrame {
         Colas = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ColasZelda = new javax.swing.JLabel();
+        ColasZelda1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        ColasZelda2 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ColasZelda3 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ColasZelda4 = new javax.swing.JLabel();
         Colas2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        ColasSF = new javax.swing.JLabel();
+        ColasSF1 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        ColasSF2 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        ColasSF3 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        ColasSF4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -74,13 +86,31 @@ public class MainInterfaz extends javax.swing.JFrame {
         jLabel6.setText("Colas de prioridad");
         Colas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
-        ColasZelda.setBackground(new java.awt.Color(0, 0, 255));
-        ColasZelda.setForeground(new java.awt.Color(0, 51, 255));
-        jScrollPane1.setViewportView(ColasZelda);
+        ColasZelda1.setBackground(new java.awt.Color(0, 0, 255));
+        ColasZelda1.setForeground(new java.awt.Color(0, 51, 255));
+        jScrollPane1.setViewportView(ColasZelda1);
 
-        Colas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 310));
+        Colas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 60));
 
-        jPanel1.add(Colas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 270, 370));
+        ColasZelda2.setBackground(new java.awt.Color(0, 0, 255));
+        ColasZelda2.setForeground(new java.awt.Color(0, 51, 255));
+        jScrollPane3.setViewportView(ColasZelda2);
+
+        Colas.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 60));
+
+        ColasZelda3.setBackground(new java.awt.Color(0, 0, 255));
+        ColasZelda3.setForeground(new java.awt.Color(0, 51, 255));
+        jScrollPane4.setViewportView(ColasZelda3);
+
+        Colas.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 270, 60));
+
+        ColasZelda4.setBackground(new java.awt.Color(0, 0, 255));
+        ColasZelda4.setForeground(new java.awt.Color(0, 51, 255));
+        jScrollPane5.setViewportView(ColasZelda4);
+
+        Colas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
+
+        jPanel1.add(Colas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 270, 360));
 
         Colas2.setBackground(new java.awt.Color(0, 0, 102));
         Colas2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,12 +119,27 @@ public class MainInterfaz extends javax.swing.JFrame {
         jLabel7.setText("Colas de prioridad");
         Colas2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
-        ColasSF.setBackground(new java.awt.Color(0, 0, 0));
-        jScrollPane2.setViewportView(ColasSF);
+        ColasSF1.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane2.setViewportView(ColasSF1);
 
-        Colas2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 310));
+        Colas2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 60));
 
-        jPanel1.add(Colas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 210, 270, 370));
+        ColasSF2.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane6.setViewportView(ColasSF2);
+
+        Colas2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 60));
+
+        ColasSF3.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane7.setViewportView(ColasSF3);
+
+        Colas2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 270, 60));
+
+        ColasSF4.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane8.setViewportView(ColasSF4);
+
+        Colas2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
+
+        jPanel1.add(Colas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 200, 270, 370));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -191,7 +236,7 @@ public class MainInterfaz extends javax.swing.JFrame {
             // Procesar la batalla en la IA
             ai.processBattle(zeldaCharacter, streetFighterCharacter);
 
-            // Mostrar las colas antes de la ronda
+            // Mostrar las colas en la interfaz
             admin.actualizarColasEnInterfaz();
 
             // Actualizar las colas después de la ronda
@@ -201,6 +246,37 @@ public class MainInterfaz extends javax.swing.JFrame {
         // Mostrar las colas al final de la simulación
         System.out.println("\n--- Colas finales ---");
         admin.printQueues();
+        admin.actualizarColasEnInterfaz();
+    }
+
+    public static JLabel getColasZelda(int index) {
+        switch (index) {
+            case 1:
+                return ColasZelda1;
+            case 2:
+                return ColasZelda2;
+            case 3:
+                return ColasZelda3;
+            case 4:
+                return ColasZelda4;
+            default:
+                return null;
+        }
+    }
+
+    public static JLabel getColasSF(int index) {
+        switch (index) {
+            case 1:
+                return ColasSF1;
+            case 2:
+                return ColasSF2;
+            case 3:
+                return ColasSF3;
+            case 4:
+                return ColasSF4;
+            default:
+                return null;
+        }
     }
 
     public static JLabel getStreetIMG() {
@@ -219,28 +295,82 @@ public class MainInterfaz extends javax.swing.JFrame {
         MainInterfaz.ZeldaIMG = ZeldaIMG;
     }
 
-    public static JLabel getColasSF() {
-        return ColasSF;
+    public static JLabel getColasSF1() {
+        return ColasSF1;
     }
 
-    public static void setColasSF(JLabel ColasSF) {
-        MainInterfaz.ColasSF = ColasSF;
+    public static void setColasSF1(JLabel ColasSF) {
+        MainInterfaz.ColasSF1 = ColasSF;
     }
 
-    public static JLabel getColasZelda() {
-        return ColasZelda;
+    public static JLabel getColasZelda1() {
+        return ColasZelda1;
     }
 
-    public static void setColasZelda(JLabel ColasZelda) {
-        MainInterfaz.ColasZelda = ColasZelda;
+    public static void setColasZelda1(JLabel ColasZelda) {
+        MainInterfaz.ColasZelda1 = ColasZelda;
+    }
+
+    public static JLabel getColasSF2() {
+        return ColasSF2;
+    }
+
+    public static void setColasSF2(JLabel ColasSF2) {
+        MainInterfaz.ColasSF2 = ColasSF2;
+    }
+
+    public static JLabel getColasSF3() {
+        return ColasSF3;
+    }
+
+    public static void setColasSF3(JLabel ColasSF3) {
+        MainInterfaz.ColasSF3 = ColasSF3;
+    }
+
+    public static JLabel getColasSF4() {
+        return ColasSF4;
+    }
+
+    public static void setColasSF4(JLabel ColasSF4) {
+        MainInterfaz.ColasSF4 = ColasSF4;
+    }
+
+    public static JLabel getColasZelda2() {
+        return ColasZelda2;
+    }
+
+    public static void setColasZelda2(JLabel ColasZelda2) {
+        MainInterfaz.ColasZelda2 = ColasZelda2;
+    }
+
+    public static JLabel getColasZelda3() {
+        return ColasZelda3;
+    }
+
+    public static void setColasZelda3(JLabel ColasZelda3) {
+        MainInterfaz.ColasZelda3 = ColasZelda3;
+    }
+
+    public static JLabel getColasZelda4() {
+        return ColasZelda4;
+    }
+
+    public static void setColasZelda4(JLabel ColasZelda4) {
+        MainInterfaz.ColasZelda4 = ColasZelda4;
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Colas;
     private javax.swing.JPanel Colas2;
-    public static javax.swing.JLabel ColasSF;
-    public static javax.swing.JLabel ColasZelda;
+    public static javax.swing.JLabel ColasSF1;
+    public static javax.swing.JLabel ColasSF2;
+    public static javax.swing.JLabel ColasSF3;
+    public static javax.swing.JLabel ColasSF4;
+    public static javax.swing.JLabel ColasZelda1;
+    public static javax.swing.JLabel ColasZelda2;
+    public static javax.swing.JLabel ColasZelda3;
+    public static javax.swing.JLabel ColasZelda4;
     private javax.swing.JLabel StreetFighterFondo;
     public static javax.swing.JLabel StreetIMG;
     private javax.swing.JLabel ZeldaFondo;
@@ -256,5 +386,11 @@ public class MainInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     // End of variables declaration//GEN-END:variables
 }

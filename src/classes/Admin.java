@@ -148,19 +148,51 @@ public class Admin {
 
     // Método para actualizar las colas en los JLabel
     public static void actualizarColasEnInterfaz() {
-        StringBuilder resultadoZelda = new StringBuilder("Nintendo Queues:\n");
-        resultadoZelda.append(printQueuesToString(nintendoQueue1, nintendoQueue2, nintendoQueue3));
-        resultadoZelda.append("\nReinforcement Queue Nintendo:\n");
-        resultadoZelda.append(printQueueToString(reinforcementQueueNintendo));
+        // Para Nintendo
+        for (int i = 0; i < 3; i++) {
+            StringBuilder resultadoZelda = new StringBuilder("Nintendo Queue " + (i + 1) + ":\n");
+            resultadoZelda.append(printQueueToString(getNintendoQueue(i + 1)));
+            resultadoZelda.append("\n");
+            resultadoZelda.append("Reinforcement Queue Nintendo:\n");
+            resultadoZelda.append(printQueueToString(reinforcementQueueNintendo));
+            MainInterfaz.getColasZelda(i + 1).setText(resultadoZelda.toString());
+        }
 
-        MainInterfaz.ColasZelda.setText(resultadoZelda.toString());
+        // Para Bethesda
+        for (int i = 0; i < 3; i++) {
+            StringBuilder resultadoSF = new StringBuilder("Bethesda Queue " + (i + 1) + ":\n");
+            resultadoSF.append(printQueueToString(getBethesdaQueue(i + 1)));
+            resultadoSF.append("\n");
+            resultadoSF.append("Reinforcement Queue Bethesda:\n");
+            resultadoSF.append(printQueueToString(reinforcementQueueBethesda));
+            MainInterfaz.getColasSF(i + 1).setText(resultadoSF.toString());
+        }
+    }
 
-        StringBuilder resultadoSF = new StringBuilder("Bethesda Queues:\n");
-        resultadoSF.append(printQueuesToString(bethesdaQueue1, bethesdaQueue2, bethesdaQueue3));
-        resultadoSF.append("\nReinforcement Queue Bethesda:\n");
-        resultadoSF.append(printQueueToString(reinforcementQueueBethesda));
+    private static Queue<Character> getNintendoQueue(int index) {
+        switch (index) {
+            case 1:
+                return nintendoQueue1;
+            case 2:
+                return nintendoQueue2;
+            case 3:
+                return nintendoQueue3;
+            default:
+                return null;
+        }
+    }
 
-        MainInterfaz.ColasSF.setText(resultadoSF.toString());
+    private static Queue<Character> getBethesdaQueue(int index) {
+        switch (index) {
+            case 1:
+                return bethesdaQueue1;
+            case 2:
+                return bethesdaQueue2;
+            case 3:
+                return bethesdaQueue3;
+            default:
+                return null;
+        }
     }
 
 // Cambia estos métodos para que sean estáticos
