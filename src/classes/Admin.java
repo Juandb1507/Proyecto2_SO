@@ -175,27 +175,45 @@ public class Admin {
     // Método para actualizar las colas en los JLabel
     public static void actualizarColasEnInterfaz() {
         // Para Nintendo
-        for (int i = 0; i < 3; i++) {
-            StringBuilder resultadoZelda = new StringBuilder("Nintendo Queue " + (i + 1) + ":\n");
+        for (int i = 0; i < 4; i++) {
+            StringBuilder resultadoZelda = new StringBuilder();
             JLabel colasZelda = MainInterfaz.getColasZelda(i + 1);
+
             if (colasZelda != null) {
-                resultadoZelda.append(printQueueToString(getNintendoQueue(i + 1)));
-                resultadoZelda.append("\n");
-                resultadoZelda.append("Reinforcement Queue Nintendo:\n");
-                resultadoZelda.append(printQueueToString(reinforcementQueueNintendo));
+                Queue<Character> currentQueue;
+
+                // Determinar la cola actual según el índice
+                if (i < 3) {
+                    resultadoZelda.append("Nintendo Queue " + (i + 1) + ":\n");
+                    currentQueue = getNintendoQueue(i + 1);
+                } else {
+                    resultadoZelda.append("Reinforcement Queue Nintendo:\n");
+                    currentQueue = reinforcementQueueNintendo;
+                }
+
+                resultadoZelda.append(printQueueToString(currentQueue));
                 colasZelda.setText(resultadoZelda.toString());
             }
         }
 
         // Para Bethesda
-        for (int i = 0; i < 3; i++) {
-            StringBuilder resultadoSF = new StringBuilder("Bethesda Queue " + (i + 1) + ":\n");
+        for (int i = 0; i < 4; i++) {
+            StringBuilder resultadoSF = new StringBuilder();
             JLabel colasSF = MainInterfaz.getColasSF(i + 1);
+
             if (colasSF != null) {
-                resultadoSF.append(printQueueToString(getBethesdaQueue(i + 1)));
-                resultadoSF.append("\n");
-                resultadoSF.append("Reinforcement Queue Bethesda:\n");
-                resultadoSF.append(printQueueToString(reinforcementQueueBethesda));
+                Queue<Character> currentQueue;
+
+                // Determinar la cola actual según el índice
+                if (i < 3) {
+                    resultadoSF.append("Bethesda Queue " + (i + 1) + ":\n");
+                    currentQueue = getBethesdaQueue(i + 1);
+                } else {
+                    resultadoSF.append("Reinforcement Queue Bethesda:\n");
+                    currentQueue = reinforcementQueueBethesda;
+                }
+
+                resultadoSF.append(printQueueToString(currentQueue));
                 colasSF.setText(resultadoSF.toString());
             }
         }
@@ -209,6 +227,8 @@ public class Admin {
                 return nintendoQueue2;
             case 3:
                 return nintendoQueue3;
+            case 4:
+                return reinforcementQueueNintendo;
             default:
                 return null;
         }
@@ -222,6 +242,8 @@ public class Admin {
                 return bethesdaQueue2;
             case 3:
                 return bethesdaQueue3;
+            case 4:
+                return reinforcementQueueBethesda;
             default:
                 return null;
         }
