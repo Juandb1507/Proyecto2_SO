@@ -195,7 +195,6 @@ public class Admin {
         }
     }
 
-// Cambia estos métodos para que sean estáticos
     private static <T> String printQueuesToString(Queue<T>... queues) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < queues.length; i++) {
