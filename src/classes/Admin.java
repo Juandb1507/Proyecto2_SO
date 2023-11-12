@@ -55,6 +55,14 @@ public class Admin {
         queues[priorityIndex].enqueue(character);
     }
 
+    public static void upgradeToQueue(Character character, Queue<Character>... queues) {
+
+        int NewpriorityIndex = character.getLevelPriority() - 1;
+        int priorityIndex = character.getLevelPriority();
+        queues[NewpriorityIndex].enqueue(character);
+
+    }
+
     public Character[] selectCharactersForBattle() {
         Character[] charactersForBattle = new Character[2];
 
@@ -62,6 +70,7 @@ public class Admin {
         charactersForBattle[1] = selectCharacterFromNextNonEmptyQueue(bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
 
         return charactersForBattle;
+
     }
 
     private Character selectCharacterFromNextNonEmptyQueue(Queue<Character>... queues) {
@@ -84,8 +93,8 @@ public class Admin {
             priorityQueue.enqueue(character);
         }
     }
-// Sube los personajes en la posicion 1 de las colas. 
 
+// Sube los personajes en la posicion 1 de las colas. 
     public void updateQueues() {
         for (int i = 1; i < 3; i++) {
             Character nintendoCharacter = selectCharacterFromQueue(i, nintendoQueue1, nintendoQueue2, nintendoQueue3);
@@ -99,10 +108,6 @@ public class Admin {
                         break;
                     case 3:
                         nintendoQueue3.enqueue(nintendoCharacter);
-                        break;
-                    default:
-                        // Manejo si el índice es inesperado, encolarlo en la cola 1 (manejo de error luego lo quitamos)
-                        nintendoQueue1.enqueue(nintendoCharacter);
                         break;
                 }
             }
@@ -118,10 +123,6 @@ public class Admin {
                         break;
                     case 3:
                         bethesdaQueue3.enqueue(bethesdaCharacter);
-                        break;
-                    default:
-                        // Manejo si el índice es inesperado, encolarlo en la cola 1 (manejo de error luego lo quitamos)
-                        bethesdaQueue1.enqueue(bethesdaCharacter);
                         break;
                 }
             }
@@ -145,27 +146,58 @@ public class Admin {
         // Devuelve true con un 40% de probabilidad (para sacar de la cola de refuerzo)
         return new Random().nextInt(100) < 40;
     }
+    //Lógica para aumentar contadores de Characters
+
+    public static void incrementRoundCounters() {
+        Queue<Character>[] allQueues = new Queue[]{
+            nintendoQueue1, nintendoQueue2, nintendoQueue3,
+            bethesdaQueue1, bethesdaQueue2, bethesdaQueue3
+        };
+
+        for (Queue<Character> queue : allQueues) {
+            incrementQueueRoundCounters(queue);
+        }
+    }
+// Lógica para aumentar el nivel de prioridad (Subir de Queue)
+
+    private static void incrementQueueRoundCounters(Queue<Character> queue) {
+        Queue<Character> tempQueue = new Queue<>();
+        while (!queue.isEmpty()) {
+            Character character = queue.dequeue();
+            character.increaseRoundCounter();
+            tempQueue.enqueue(character);
+        }
+        while (!tempQueue.isEmpty()) {
+            queue.enqueue(tempQueue.dequeue());
+        }
+    }
 
     // Método para actualizar las colas en los JLabel
     public static void actualizarColasEnInterfaz() {
         // Para Nintendo
         for (int i = 0; i < 3; i++) {
             StringBuilder resultadoZelda = new StringBuilder("Nintendo Queue " + (i + 1) + ":\n");
-            resultadoZelda.append(printQueueToString(getNintendoQueue(i + 1)));
-            resultadoZelda.append("\n");
-            resultadoZelda.append("Reinforcement Queue Nintendo:\n");
-            resultadoZelda.append(printQueueToString(reinforcementQueueNintendo));
-            MainInterfaz.getColasZelda(i + 1).setText(resultadoZelda.toString());
+            JLabel colasZelda = MainInterfaz.getColasZelda(i + 1);
+            if (colasZelda != null) {
+                resultadoZelda.append(printQueueToString(getNintendoQueue(i + 1)));
+                resultadoZelda.append("\n");
+                resultadoZelda.append("Reinforcement Queue Nintendo:\n");
+                resultadoZelda.append(printQueueToString(reinforcementQueueNintendo));
+                colasZelda.setText(resultadoZelda.toString());
+            }
         }
 
         // Para Bethesda
         for (int i = 0; i < 3; i++) {
             StringBuilder resultadoSF = new StringBuilder("Bethesda Queue " + (i + 1) + ":\n");
-            resultadoSF.append(printQueueToString(getBethesdaQueue(i + 1)));
-            resultadoSF.append("\n");
-            resultadoSF.append("Reinforcement Queue Bethesda:\n");
-            resultadoSF.append(printQueueToString(reinforcementQueueBethesda));
-            MainInterfaz.getColasSF(i + 1).setText(resultadoSF.toString());
+            JLabel colasSF = MainInterfaz.getColasSF(i + 1);
+            if (colasSF != null) {
+                resultadoSF.append(printQueueToString(getBethesdaQueue(i + 1)));
+                resultadoSF.append("\n");
+                resultadoSF.append("Reinforcement Queue Bethesda:\n");
+                resultadoSF.append(printQueueToString(reinforcementQueueBethesda));
+                colasSF.setText(resultadoSF.toString());
+            }
         }
     }
 

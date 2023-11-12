@@ -13,8 +13,11 @@ import java.util.Set;
  * @author juand
  */
 public class Character {
+
     private static int idCounter = 1;
+    private int roundCounter = 0;
     private int id;
+    private String studio;
     private String name;
     private int levelPriority;
     private boolean exceptional;
@@ -28,10 +31,10 @@ public class Character {
     private static final String[] ZELDA_NAMES = {"Link", "Sidon", "Ganondorf", "Impa", "Mipha"};
     private static final String[] STREET_FIGHTER_NAMES = {"Ryu", "Chun-Li", "Guile", "Dhalsim", "Blanka"};
 
-    private Character(String name) {
+    private Character(String name, String studio) {
         this.id = idCounter++;
         this.name = name;
-
+        this.studio = studio;
         this.abilities = generateQuality(60);
         this.health = generateQuality(70);
         this.strength = generateQuality(50);
@@ -44,10 +47,9 @@ public class Character {
         } else {
             this.exceptional = false;
             // Calcula el nivel de prioridad utilizando un método simplificado
-            if (determineNumSpecialAbilities() == 1){
+            if (determineNumSpecialAbilities() == 1) {
                 this.levelPriority = 3; //Al solo tener 1 habilidad se setea como Deficiente (Prioridad 3)
-            }
-            else{
+            } else {
                 this.levelPriority = 2; //Al tener 2 habilidades se setea como Promedio(Prioridad 2)
             }
         }
@@ -58,12 +60,12 @@ public class Character {
 
     public static Character createZeldaCharacter() {
         String name = ZELDA_NAMES[new Random().nextInt(ZELDA_NAMES.length)];
-        return new Character(name); // El nivel de prioridad se establecerá dentro del constructor
+        return new Character(name, "N"); // El nivel de prioridad se establecerá dentro del constructor
     }
 
     public static Character createStreetFighterCharacter() {
         String name = STREET_FIGHTER_NAMES[new Random().nextInt(STREET_FIGHTER_NAMES.length)];
-        return new Character(name); // El nivel de prioridad se establecerá dentro del constructor
+        return new Character(name, "B"); // El nivel de prioridad se establecerá dentro del constructor
     }
 
     private int generateQuality(int baseProbability) {
@@ -101,11 +103,50 @@ public class Character {
 
     private int countQualityAttributes() {
         int count = 0;
-        if (abilities > 0) count++;
-        if (health > 0) count++;
-        if (strength > 0) count++;
-        if (agility > 0) count++;
+        if (abilities > 0) {
+            count++;
+        }
+        if (health > 0) {
+            count++;
+        }
+        if (strength > 0) {
+            count++;
+        }
+        if (agility > 0) {
+            count++;
+        }
         return count;
+    }
+
+    //Lógica para contador de rounds y cambio de Queue
+    public void increaseRoundCounter() {
+
+        this.roundCounter++;
+//        System.out.println("Contador combate= " + roundCounter + " " + name + id);
+        if (this.roundCounter == 8) {
+            this.roundCounter = 0; // Resetea el round counter
+            if (levelPriority != 1) {
+                
+                increasePriorityAndQueue(this, Admin.nintendoQueue1, Admin.nintendoQueue2, Admin.nintendoQueue3, Admin.bethesdaQueue1, Admin.bethesdaQueue2, Admin.bethesdaQueue3);
+            }
+        }
+    }
+// AQUI SE PASAN A LA COLA DE MAYOR PRIORIDAD (AUN NO SE BORRA EL ANTERIOR POR LO QUE QUEDAN DUPLICADOS)
+    private void increasePriorityAndQueue(Character character, Queue<Character> nintendoQueue1, Queue<Character> nintendoQueue2, Queue<Character> nintendoQueue3, Queue<Character> bethesdaQueue1, Queue<Character> bethesdaQueue2, Queue<Character> bethesdaQueue3) {
+        if (studio == "N") {
+           
+//            levelPriority --;
+//          
+//            Admin.upgradeToQueue(character, nintendoQueue1, nintendoQueue2, nintendoQueue3);
+          
+//            System.out.println("SE SUBIO EL NIVEL DE PRIORIDAD DE "+name+id+"-------------------------");
+
+        } else {
+//            levelPriority --;
+//            Admin.upgradeToQueue(character, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
+             
+        }
+
     }
 
     public int getId() {

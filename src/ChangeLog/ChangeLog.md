@@ -1,3 +1,8 @@
+## [1.0.12] - 11/11/2023 (srvillarroel)
+
+- Merge de todos los cambios de BUGA + Los mios de la interfaz. Funcional. 
+
+
 ## [1.0.11] - 11/11/2023 (srvillarroel)
 
 - Se adelanto en mayor parte la interfaz, se agrego logica en el Admin para colocar la informacion de las colas en la interfaz.

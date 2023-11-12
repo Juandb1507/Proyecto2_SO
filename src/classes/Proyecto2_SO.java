@@ -20,7 +20,7 @@
 //        admin.initializeCharacters();
 //
 //        // Simular rondas de la IA
-//        for (int round = 1; round <= 5; round++) { // Ejemplo: 5 rondas
+//        for (int round = 1; round <= 10; round++) { // Ejemplo: 10 rondas
 //            System.out.println("\n--- Ronda " + round + " ---");
 //
 //            // Mostrar las colas antes de la ronda
