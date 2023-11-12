@@ -25,7 +25,7 @@ public class Character {
     private int uniquePoints; // Puntos únicos según nivel de prioridad
     private Set<String> specialAbilities; // Habilidades especiales
 
-    private static final String[] ZELDA_NAMES = {"Link", "Zelda", "Ganondorf", "Impa", "Mipha"};
+    private static final String[] ZELDA_NAMES = {"Link", "Sidon", "Ganondorf", "Impa", "Mipha"};
     private static final String[] STREET_FIGHTER_NAMES = {"Ryu", "Chun-Li", "Guile", "Dhalsim", "Blanka"};
 
     private Character(String name) {

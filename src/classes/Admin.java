@@ -5,6 +5,8 @@
 package classes;
 
 import java.util.Random;
+import javax.swing.JLabel;
+import ui.MainInterfaz;
 
 /**
  *
@@ -58,7 +60,7 @@ public class Admin {
 
         charactersForBattle[0] = selectCharacterFromNextNonEmptyQueue(nintendoQueue1, nintendoQueue2, nintendoQueue3);
         charactersForBattle[1] = selectCharacterFromNextNonEmptyQueue(bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
-        
+
         return charactersForBattle;
     }
 
@@ -132,16 +134,90 @@ public class Admin {
     }
 
     public static void generateCharacters() {
-            Character nintendoCharacter = Character.createZeldaCharacter();
-            Character bethesdaCharacter = Character.createStreetFighterCharacter();
+        Character nintendoCharacter = Character.createZeldaCharacter();
+        Character bethesdaCharacter = Character.createStreetFighterCharacter();
 
-            addToQueue(nintendoCharacter, nintendoQueue1, nintendoQueue2, nintendoQueue3);
-            addToQueue(bethesdaCharacter, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
+        addToQueue(nintendoCharacter, nintendoQueue1, nintendoQueue2, nintendoQueue3);
+        addToQueue(bethesdaCharacter, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
     }
 
     public static boolean shouldMoveToPriority1() {
         // Devuelve true con un 40% de probabilidad (para sacar de la cola de refuerzo)
         return new Random().nextInt(100) < 40;
+    }
+
+    // Método para actualizar las colas en los JLabel
+    public static void actualizarColasEnInterfaz() {
+        // Para Nintendo
+        for (int i = 0; i < 3; i++) {
+            StringBuilder resultadoZelda = new StringBuilder("Nintendo Queue " + (i + 1) + ":\n");
+            resultadoZelda.append(printQueueToString(getNintendoQueue(i + 1)));
+            resultadoZelda.append("\n");
+            resultadoZelda.append("Reinforcement Queue Nintendo:\n");
+            resultadoZelda.append(printQueueToString(reinforcementQueueNintendo));
+            MainInterfaz.getColasZelda(i + 1).setText(resultadoZelda.toString());
+        }
+
+        // Para Bethesda
+        for (int i = 0; i < 3; i++) {
+            StringBuilder resultadoSF = new StringBuilder("Bethesda Queue " + (i + 1) + ":\n");
+            resultadoSF.append(printQueueToString(getBethesdaQueue(i + 1)));
+            resultadoSF.append("\n");
+            resultadoSF.append("Reinforcement Queue Bethesda:\n");
+            resultadoSF.append(printQueueToString(reinforcementQueueBethesda));
+            MainInterfaz.getColasSF(i + 1).setText(resultadoSF.toString());
+        }
+    }
+
+    private static Queue<Character> getNintendoQueue(int index) {
+        switch (index) {
+            case 1:
+                return nintendoQueue1;
+            case 2:
+                return nintendoQueue2;
+            case 3:
+                return nintendoQueue3;
+            default:
+                return null;
+        }
+    }
+
+    private static Queue<Character> getBethesdaQueue(int index) {
+        switch (index) {
+            case 1:
+                return bethesdaQueue1;
+            case 2:
+                return bethesdaQueue2;
+            case 3:
+                return bethesdaQueue3;
+            default:
+                return null;
+        }
+    }
+
+// Cambia estos métodos para que sean estáticos
+    private static <T> String printQueuesToString(Queue<T>... queues) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < queues.length; i++) {
+            result.append("Queue ").append(i + 1).append(": ");
+            result.append(printQueueToString(queues[i]));
+        }
+        return result.toString();
+    }
+
+    private static <T> String printQueueToString(Queue<T> queue) {
+        Queue<T> tempQueue = new Queue<>();
+        StringBuilder result = new StringBuilder();
+        while (!queue.isEmpty()) {
+            T data = queue.dequeue();
+            result.append(data).append(" ");
+            tempQueue.enqueue(data);
+        }
+        result.append("\n");
+        while (!tempQueue.isEmpty()) {
+            queue.enqueue(tempQueue.dequeue());
+        }
+        return result.toString();
     }
 
     public void printQueues() {
