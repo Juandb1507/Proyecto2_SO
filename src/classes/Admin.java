@@ -53,13 +53,22 @@ public class Admin {
         queues[priorityIndex].enqueue(character);
     }
 
+    public static void upgradeToQueue(Character character, Queue<Character>... queues) {
+
+        int NewpriorityIndex = character.getLevelPriority() - 1;
+        int priorityIndex = character.getLevelPriority();
+        queues[NewpriorityIndex].enqueue(character);
+
+    }
+
     public Character[] selectCharactersForBattle() {
         Character[] charactersForBattle = new Character[2];
 
         charactersForBattle[0] = selectCharacterFromNextNonEmptyQueue(nintendoQueue1, nintendoQueue2, nintendoQueue3);
         charactersForBattle[1] = selectCharacterFromNextNonEmptyQueue(bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
-        
+
         return charactersForBattle;
+
     }
 
     private Character selectCharacterFromNextNonEmptyQueue(Queue<Character>... queues) {
@@ -82,8 +91,8 @@ public class Admin {
             priorityQueue.enqueue(character);
         }
     }
-// Sube los personajes en la posicion 1 de las colas. 
 
+// Sube los personajes en la posicion 1 de las colas. 
     public void updateQueues() {
         for (int i = 1; i < 3; i++) {
             Character nintendoCharacter = selectCharacterFromQueue(i, nintendoQueue1, nintendoQueue2, nintendoQueue3);
@@ -97,10 +106,6 @@ public class Admin {
                         break;
                     case 3:
                         nintendoQueue3.enqueue(nintendoCharacter);
-                        break;
-                    default:
-                        // Manejo si el índice es inesperado, encolarlo en la cola 1 (manejo de error luego lo quitamos)
-                        nintendoQueue1.enqueue(nintendoCharacter);
                         break;
                 }
             }
@@ -117,10 +122,6 @@ public class Admin {
                     case 3:
                         bethesdaQueue3.enqueue(bethesdaCharacter);
                         break;
-                    default:
-                        // Manejo si el índice es inesperado, encolarlo en la cola 1 (manejo de error luego lo quitamos)
-                        bethesdaQueue1.enqueue(bethesdaCharacter);
-                        break;
                 }
             }
         }
@@ -132,18 +133,45 @@ public class Admin {
     }
 
     public static void generateCharacters() {
-            Character nintendoCharacter = Character.createZeldaCharacter();
-            Character bethesdaCharacter = Character.createStreetFighterCharacter();
+        Character nintendoCharacter = Character.createZeldaCharacter();
+        Character bethesdaCharacter = Character.createStreetFighterCharacter();
 
-            addToQueue(nintendoCharacter, nintendoQueue1, nintendoQueue2, nintendoQueue3);
-            addToQueue(bethesdaCharacter, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
+        addToQueue(nintendoCharacter, nintendoQueue1, nintendoQueue2, nintendoQueue3);
+        addToQueue(bethesdaCharacter, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
     }
 
     public static boolean shouldMoveToPriority1() {
         // Devuelve true con un 40% de probabilidad (para sacar de la cola de refuerzo)
         return new Random().nextInt(100) < 40;
     }
+    //Lógica para aumentar contadores de Characters
 
+    public static void incrementRoundCounters() {
+        Queue<Character>[] allQueues = new Queue[]{
+            nintendoQueue1, nintendoQueue2, nintendoQueue3,
+            bethesdaQueue1, bethesdaQueue2, bethesdaQueue3
+        };
+
+        for (Queue<Character> queue : allQueues) {
+            incrementQueueRoundCounters(queue);
+        }
+    }
+// Lógica para aumentar el nivel de prioridad (Subir de Queue)
+
+    private static void incrementQueueRoundCounters(Queue<Character> queue) {
+        Queue<Character> tempQueue = new Queue<>();
+        while (!queue.isEmpty()) {
+            Character character = queue.dequeue();
+            character.increaseRoundCounter();
+            tempQueue.enqueue(character);
+        }
+        while (!tempQueue.isEmpty()) {
+            queue.enqueue(tempQueue.dequeue());
+        }
+    }
+
+ 
+   
     public void printQueues() {
         System.out.println("Nintendo Queues:");
         printQueues(nintendoQueue1, nintendoQueue2, nintendoQueue3);

@@ -11,6 +11,7 @@ package classes;
 public class Node<T> {
     private T data;
     private Node<T> next;
+    private String name;
 
     public Node(T data) {
         this.data = data;

@@ -9,12 +9,15 @@ package classes;
  * @author juand
  */
 public class Queue<T> {
+
     private Node<T> front;
     private Node<T> rear;
+    private int length;
 
     public Queue() {
         this.front = null;
         this.rear = null;
+        this.length = 0;
     }
 
     public boolean isEmpty() {
@@ -43,19 +46,34 @@ public class Queue<T> {
         }
         return data;
     }
-
+  
     public T peek() {
         return isEmpty() ? null : front.getData();
     }
-    public int length() {
-        int length = 0;
-        Node<T> current = front;
 
-        while (current != null) {
-            length++;
-            current = current.getNext();
-        }
 
+    public Node<T> getFront() {
+        return front;
+    }
+
+    public void setFront(Node<T> front) {
+        this.front = front;
+    }
+
+    public Node<T> getRear() {
+        return rear;
+    }
+
+    public void setRear(Node<T> rear) {
+        this.rear = rear;
+    }
+
+    public int getLength() {
         return length;
     }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
 }
