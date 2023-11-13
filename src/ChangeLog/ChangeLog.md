@@ -1,4 +1,8 @@
-## [1.0.16] - 10/11/2023 (Juandb1507)
+## [1.0.17] - 13/11/2023 (Juandb1507)
+
+- Se colocan las coronas al ganador.
+
+## [1.0.16] - 13/11/2023 (Juandb1507)
 
 - Lógica HandleWinner completa
 

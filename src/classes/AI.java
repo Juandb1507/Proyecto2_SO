@@ -18,7 +18,7 @@ public class AI {
 
     public void processBattle(Character zeldaCharacter, Character streetFighterCharacter) {
         try {
-            Thread.sleep(1000); //10 seg (COLOCAR 10000)
+            Thread.sleep(8000); //10 seg (COLOCAR 10000)
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -29,14 +29,19 @@ public class AI {
         int zeldaPoints = zeldaCharacter.getUniquePoints();
         int streetFighterPoints = streetFighterCharacter.getUniquePoints();
 
+        // Setear el nombre imagen y puntos unicos de los personajes a pelear.
         MainInterfaz.setZeldaIcon(zeldaCharacter.getName(), zeldaCharacter.getUniquePoints());
+        MainInterfaz.setNombreZ(zeldaCharacter.getName());
         MainInterfaz.setSFIcon(streetFighterCharacter.getName(), streetFighterCharacter.getUniquePoints());
+        MainInterfaz.setNombreSF(streetFighterCharacter.getName());
 
         if (result < WIN_PROBABILITY) {
-            if(zeldaPoints > streetFighterPoints){
-            handleWinnerZelda(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints);
-            }else{
-                handleWinnerStreetFighter(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints); 
+            if (zeldaPoints > streetFighterPoints) {
+                handleWinnerZelda(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints);
+                MainInterfaz.setCoronaPositionZelda(MainInterfaz.ZeldaIMG);
+            } else {
+                handleWinnerStreetFighter(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints);
+                MainInterfaz.setCoronaPositionStreetF(MainInterfaz.StreetIMG);
             }
         } else if (result < WIN_PROBABILITY + DRAW_PROBABILITY) {
             handleDraw(zeldaCharacter, streetFighterCharacter);
@@ -60,6 +65,15 @@ public class AI {
                 System.out.println("SE GENERARON 2 PERSONAJES NUEVOS!");
             }
         }
+
+        try {
+            Thread.sleep(2000); //10 seg (COLOCAR 10000)
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        MainInterfaz.coronaLabelSF.setVisible(false);
+        MainInterfaz.coronaLabelZ.setVisible(false);
     }
 
     private void handleWinnerZelda(Character winner, Character loser, int winnerPoints, int loserPoints) {
@@ -67,7 +81,8 @@ public class AI {
                 + " (ID: " + winner.getId() + ") con " + winnerPoints + " puntos únicos.");
         // logica para añadir a la lista de ganadores
     }
-        private void handleWinnerStreetFighter(Character loser, Character winner, int loserPoints, int winnerPoints) {
+
+    private void handleWinnerStreetFighter(Character loser, Character winner, int loserPoints, int winnerPoints) {
         System.out.println("¡Combate terminado! El ganador es: " + winner.getName()
                 + " (ID: " + winner.getId() + ") con " + winnerPoints + " puntos únicos.");
         // logica para añadir a la lista de ganadores
