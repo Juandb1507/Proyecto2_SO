@@ -20,6 +20,8 @@ public class MainInterfaz extends javax.swing.JFrame {
      */
     public MainInterfaz() {
         initComponents();
+        coronaLabelZ.setVisible(false);
+        coronaLabelSF.setVisible(false);
     }
 
     /**
@@ -36,7 +38,6 @@ public class MainInterfaz extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Colas = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ColasZelda1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -45,8 +46,8 @@ public class MainInterfaz extends javax.swing.JFrame {
         ColasZelda3 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         ColasZelda4 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         Colas2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ColasSF1 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -55,15 +56,20 @@ public class MainInterfaz extends javax.swing.JFrame {
         ColasSF3 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         ColasSF4 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         UniquePointsSF = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         StreetIMG = new javax.swing.JLabel();
         ZeldaIMG = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         UniquePointsZelda = new javax.swing.JLabel();
-        PuntosZ = new javax.swing.JLabel();
-        PuntosSF = new javax.swing.JLabel();
+        nombreZ = new javax.swing.JLabel();
+        nombreSF = new javax.swing.JLabel();
+        PuntosZ1 = new javax.swing.JLabel();
+        PuntosSF1 = new javax.swing.JLabel();
+        coronaLabelZ = new javax.swing.JLabel();
+        coronaLabelSF = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         StreetFighterFondo = new javax.swing.JLabel();
         ZeldaFondo = new javax.swing.JLabel();
 
@@ -73,24 +79,23 @@ public class MainInterfaz extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Street Fighter 6");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 40, 290, 80));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 50, 270, 80));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
-        jLabel2.setText("Titulo Principal");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 290, 80));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("FIGHT!");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 190, 80));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Zelda: Tears of the Kingdom");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 490, 80));
 
         Colas.setBackground(new java.awt.Color(0, 0, 102));
         Colas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setText("Colas de prioridad");
-        Colas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         ColasZelda1.setBackground(new java.awt.Color(0, 0, 255));
         ColasZelda1.setForeground(new java.awt.Color(0, 51, 255));
@@ -116,14 +121,16 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         Colas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
 
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Colas de prioridad");
+        Colas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 40));
+
         jPanel1.add(Colas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 270, 360));
 
         Colas2.setBackground(new java.awt.Color(0, 0, 102));
         Colas2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Colas de prioridad");
-        Colas2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         ColasSF1.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane2.setViewportView(ColasSF1);
@@ -145,6 +152,12 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         Colas2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
 
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Colas de prioridad");
+        Colas2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 40));
+
         jPanel1.add(Colas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 200, 270, 370));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -158,20 +171,14 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/VS.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 80, 100));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 80, 100));
 
-        StreetIMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Ryu.jpg"))); // NOI18N
-        jPanel2.add(StreetIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 150, 150));
+        StreetIMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/question.jpg"))); // NOI18N
+        jPanel2.add(StreetIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 150, 150));
 
         ZeldaIMG.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        ZeldaIMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Link.jpg"))); // NOI18N
-        jPanel2.add(ZeldaIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 150, 150));
-
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Estado de la pelea");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 160, 40));
+        ZeldaIMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/question.jpg"))); // NOI18N
+        jPanel2.add(ZeldaIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 150, 150));
 
         UniquePointsZelda.setBackground(new java.awt.Color(255, 255, 255));
         UniquePointsZelda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -179,17 +186,45 @@ public class MainInterfaz extends javax.swing.JFrame {
         UniquePointsZelda.setText("0");
         jPanel2.add(UniquePointsZelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 50, 30));
 
-        PuntosZ.setBackground(new java.awt.Color(255, 255, 255));
-        PuntosZ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        PuntosZ.setForeground(new java.awt.Color(255, 255, 255));
-        PuntosZ.setText("Puntos:");
-        jPanel2.add(PuntosZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, 30));
+        nombreZ.setBackground(new java.awt.Color(255, 255, 255));
+        nombreZ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nombreZ.setForeground(new java.awt.Color(255, 255, 255));
+        nombreZ.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nombreZ.setText("Nombre");
+        jPanel2.add(nombreZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 170, 30));
 
-        PuntosSF.setBackground(new java.awt.Color(255, 255, 255));
-        PuntosSF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        PuntosSF.setForeground(new java.awt.Color(255, 255, 255));
-        PuntosSF.setText("Puntos:");
-        jPanel2.add(PuntosSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 70, 30));
+        nombreSF.setBackground(new java.awt.Color(255, 255, 255));
+        nombreSF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nombreSF.setForeground(new java.awt.Color(255, 255, 255));
+        nombreSF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nombreSF.setText("Nombre");
+        jPanel2.add(nombreSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 170, 30));
+
+        PuntosZ1.setBackground(new java.awt.Color(255, 255, 255));
+        PuntosZ1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        PuntosZ1.setForeground(new java.awt.Color(255, 255, 255));
+        PuntosZ1.setText("Puntos:");
+        jPanel2.add(PuntosZ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, 30));
+
+        PuntosSF1.setBackground(new java.awt.Color(255, 255, 255));
+        PuntosSF1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        PuntosSF1.setForeground(new java.awt.Color(255, 255, 255));
+        PuntosSF1.setText("Puntos:");
+        jPanel2.add(PuntosSF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 70, 30));
+
+        coronaLabelZ.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        coronaLabelZ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/crown.png"))); // NOI18N
+        jPanel2.add(coronaLabelZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 80, 60));
+
+        coronaLabelSF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        coronaLabelSF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/crown.png"))); // NOI18N
+        jPanel2.add(coronaLabelSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 80, 60));
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Estado de la pelea");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 160, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 440, 390));
 
@@ -279,14 +314,47 @@ public class MainInterfaz extends javax.swing.JFrame {
         admin.actualizarColasEnInterfaz();
     }
 
+    public static void setDefStats() {
+        if (ZeldaIMG != null && StreetIMG != null) {
+            ZeldaIMG.setIcon(new ImageIcon("src\\imgs\\question.jpg"));
+            StreetIMG.setIcon(new ImageIcon("src\\imgs\\question.jpg"));
+            nombreZ.setText("Buscando oponente");
+            nombreSF.setText("Buscando oponente");
+            UniquePointsZelda.setText("0");
+            UniquePointsSF.setText("0");
+
+        } else {
+            System.out.println("ZeldaIMG o StreetIMG es null. Asegúrate de que estén inicializados correctamente.");
+        }
+    }
+
     public static void setZeldaIcon(String name, int power) {
         ZeldaIMG.setIcon(new ImageIcon("src\\imgs\\" + name + ".jpg"));
+        nombreZ.setText(name);
         UniquePointsZelda.setText(Integer.toString(power));
     }
 
     public static void setSFIcon(String name, int power) {
         StreetIMG.setIcon(new ImageIcon("src\\imgs\\" + name + ".jpg"));
+        nombreSF.setText(name);
         UniquePointsSF.setText(Integer.toString(power));
+    }
+
+    // Método para colocar la corona sobre la imagen del personaje ganador
+    public static void setCoronaPositionZelda(JLabel characterImage) {
+        coronaLabelZ.setVisible(true);
+    }
+
+    public static void setCoronaPositionStreetF(JLabel characterImage) {
+        coronaLabelSF.setVisible(true);
+    }
+
+    public static void setNombreZ(String name) {
+        nombreZ.setText(name);
+    }
+
+    public static void setNombreSF(String name) {
+        nombreSF.setText(name);
     }
 
     public static JLabel getColasZelda(int index) {
@@ -349,6 +417,22 @@ public class MainInterfaz extends javax.swing.JFrame {
 
     public static void setUniquePointsZelda(JLabel UniquePointsZelda) {
         MainInterfaz.UniquePointsZelda = UniquePointsZelda;
+    }
+
+    public static JLabel getNombreSF() {
+        return nombreSF;
+    }
+
+    public static void setNombreSF(JLabel nombreSF) {
+        MainInterfaz.nombreSF = nombreSF;
+    }
+
+    public static JLabel getNombreZ() {
+        return nombreZ;
+    }
+
+    public static void setNombreZ(JLabel nombreZ) {
+        MainInterfaz.nombreZ = nombreZ;
     }
 
     public static JLabel getColasSF1() {
@@ -427,21 +511,23 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel ColasZelda2;
     public static javax.swing.JLabel ColasZelda3;
     public static javax.swing.JLabel ColasZelda4;
-    public static javax.swing.JLabel PuntosSF;
-    public static javax.swing.JLabel PuntosZ;
+    public static javax.swing.JLabel PuntosSF1;
+    public static javax.swing.JLabel PuntosZ1;
     private javax.swing.JLabel StreetFighterFondo;
     public static javax.swing.JLabel StreetIMG;
     public static javax.swing.JLabel UniquePointsSF;
     public static javax.swing.JLabel UniquePointsZelda;
     private javax.swing.JLabel ZeldaFondo;
     public static javax.swing.JLabel ZeldaIMG;
+    public static javax.swing.JLabel coronaLabelSF;
+    public static javax.swing.JLabel coronaLabelZ;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -452,5 +538,7 @@ public class MainInterfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    public static javax.swing.JLabel nombreSF;
+    public static javax.swing.JLabel nombreZ;
     // End of variables declaration//GEN-END:variables
 }
