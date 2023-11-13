@@ -1,3 +1,7 @@
+## [1.0.14] - 13/11/2023 (srvillarroel)
+
+- Ya se cambian las imagenes de la interfaz segun el personaje.
+
 ## [1.0.13] - 11/11/2023 (srvillarroel)
 
 - Ya salen todos los datos de las colas en la interfaz.
