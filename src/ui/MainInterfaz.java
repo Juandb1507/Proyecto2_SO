@@ -87,6 +87,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         Colas.setBackground(new java.awt.Color(0, 0, 102));
         Colas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Colas de prioridad");
         Colas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
@@ -182,13 +183,13 @@ public class MainInterfaz extends javax.swing.JFrame {
         PuntosZ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PuntosZ.setForeground(new java.awt.Color(255, 255, 255));
         PuntosZ.setText("Puntos:");
-        jPanel2.add(PuntosZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 50, 30));
+        jPanel2.add(PuntosZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, 30));
 
         PuntosSF.setBackground(new java.awt.Color(255, 255, 255));
         PuntosSF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PuntosSF.setForeground(new java.awt.Color(255, 255, 255));
         PuntosSF.setText("Puntos:");
-        jPanel2.add(PuntosSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 50, 30));
+        jPanel2.add(PuntosSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 70, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 440, 390));
 
@@ -247,7 +248,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         admin.initializeCharacters();
 
         // Simular rondas de la IA
-        for (int round = 1; round <= 5; round++) { // Ejemplo: 5 rondas
+        for (int round = 1; round <= 10; round++) { // Ejemplo: 5 rondas
             System.out.println("\n--- Ronda " + round + " ---");
 
             // Mostrar las colas antes de la ronda
