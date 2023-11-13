@@ -17,6 +17,9 @@ public class AI {
     private static final double NO_COMBAT_PROBABILITY = 0.33;
 
     public void processBattle(Character zeldaCharacter, Character streetFighterCharacter) {
+        
+        MainInterfaz.setDefStats();
+        
         try {
             Thread.sleep(8000); //10 seg (COLOCAR 10000)
         } catch (InterruptedException e) {
@@ -31,9 +34,7 @@ public class AI {
 
         // Setear el nombre imagen y puntos unicos de los personajes a pelear.
         MainInterfaz.setZeldaIcon(zeldaCharacter.getName(), zeldaCharacter.getUniquePoints());
-        MainInterfaz.setNombreZ(zeldaCharacter.getName());
         MainInterfaz.setSFIcon(streetFighterCharacter.getName(), streetFighterCharacter.getUniquePoints());
-        MainInterfaz.setNombreSF(streetFighterCharacter.getName());
 
         if (result < WIN_PROBABILITY) {
             if (zeldaPoints > streetFighterPoints) {
