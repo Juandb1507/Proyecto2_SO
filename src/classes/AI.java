@@ -58,6 +58,8 @@ public class AI {
             Admin.moveCharacterToPriority(Admin.reinforcementQueueBethesda, Admin.bethesdaQueue1);
         }
         Admin.incrementRoundCounters(); // Incrementa los contadores de todas las colas
+        Character.removeFromQueueN(Admin.nintendoQueue2, Admin.nintendoQueue3);
+        Character.removeFromQueueB(Admin.bethesdaQueue2, Admin.bethesdaQueue3);
         //Generador de personajes (80% de probabilidad)
         Admin.roundCounter++;
         if (Admin.roundCounter % 2 == 0) { // Se han completado dos rondas

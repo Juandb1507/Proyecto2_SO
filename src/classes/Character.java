@@ -4,7 +4,9 @@
  */
 package classes;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
@@ -122,7 +124,9 @@ public class Character {
     public void increaseRoundCounter() {
 
         characterRoundCounter++;
-//        System.out.println("Contador combate= " + characterRoundCounter + " " + name + id);
+        if(characterRoundCounter == 8 & levelPriority != 1){
+//            System.out.println("Promoción por " + characterRoundCounter + " combates para " + name + id);
+        }
         if (characterRoundCounter == 8) {
             characterRoundCounter = 0; // Resetea el round counter
             if (levelPriority != 1) {
@@ -131,21 +135,57 @@ public class Character {
             }
         }
     }
+
 // AQUI SE PASAN A LA COLA DE MAYOR PRIORIDAD (AUN NO SE BORRA EL ANTERIOR POR LO QUE QUEDAN DUPLICADOS)
+    private static Map<String, Integer> charactersToRemoveN = new HashMap<>();
+    private static Map<String, Integer> charactersToRemoveB = new HashMap<>();
 
     private void increasePriorityAndQueue(Character character, Queue<Character> nintendoQueue1, Queue<Character> nintendoQueue2, Queue<Character> nintendoQueue3, Queue<Character> bethesdaQueue1, Queue<Character> bethesdaQueue2, Queue<Character> bethesdaQueue3) {
-        if (studio == "N") {
+        String nombreId = name + id;
+        int priorityToRemove = levelPriority;
+        // Guardar los datos para su uso posterior
 
-//            levelPriority --;
-//          
-//            Admin.upgradeToQueue(character, nintendoQueue1, nintendoQueue2, nintendoQueue3);
+        if (studio == "N") {
+            charactersToRemoveN.put(nombreId, priorityToRemove);
+            levelPriority--;
+
+            Admin.upgradeToQueue(character, nintendoQueue1, nintendoQueue2, nintendoQueue3);
 //            System.out.println("SE SUBIO EL NIVEL DE PRIORIDAD DE "+character+"-------------------------");
         } else {
-//            levelPriority --;
-//            Admin.upgradeToQueue(character, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
+            charactersToRemoveB.put(nombreId, priorityToRemove);
+            levelPriority--;
+            Admin.upgradeToQueue(character, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
 
         }
 
+    }
+// Método para utilizar los datos guardados
+
+    public static void removeFromQueueN(Queue<Character> nintendoQueue2, Queue<Character> nintendoQueue3) {
+        for (Map.Entry<String, Integer> entry : charactersToRemoveN.entrySet()) {
+            String characterId = entry.getKey();
+            int priority = entry.getValue();
+
+            // Realizar operaciones con las colas
+            if (priority == 2) {
+                nintendoQueue2.remove(characterId);
+            } else {
+                nintendoQueue3.remove(characterId);
+            }
+        }
+    }
+       public static void removeFromQueueB(Queue<Character> bethesdaQueue2, Queue<Character> bethesdaQueue3) {
+        for (Map.Entry<String, Integer> entry : charactersToRemoveB.entrySet()) {
+            String characterId = entry.getKey();
+            int priority = entry.getValue();
+
+            // Realizar operaciones con las colas
+            if (priority == 2) {
+                bethesdaQueue2.remove(characterId);
+            } else {
+                bethesdaQueue3.remove(characterId);
+            }
+        }
     }
 
     public int getId() {

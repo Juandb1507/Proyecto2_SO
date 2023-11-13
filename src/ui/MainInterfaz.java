@@ -38,7 +38,6 @@ public class MainInterfaz extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Colas = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ColasZelda1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -47,8 +46,8 @@ public class MainInterfaz extends javax.swing.JFrame {
         ColasZelda3 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         ColasZelda4 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         Colas2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ColasSF1 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -57,6 +56,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         ColasSF3 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         ColasSF4 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         UniquePointsSF = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -79,24 +79,23 @@ public class MainInterfaz extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Street Fighter 6");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 40, 290, 80));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 50, 270, 80));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
-        jLabel2.setText("Titulo Principal");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 290, 80));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("FIGHT!");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 190, 80));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Zelda: Tears of the Kingdom");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 490, 80));
 
         Colas.setBackground(new java.awt.Color(0, 0, 102));
         Colas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setText("Colas de prioridad");
-        Colas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         ColasZelda1.setBackground(new java.awt.Color(0, 0, 255));
         ColasZelda1.setForeground(new java.awt.Color(0, 51, 255));
@@ -122,14 +121,16 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         Colas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
 
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Colas de prioridad");
+        Colas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 40));
+
         jPanel1.add(Colas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 270, 360));
 
         Colas2.setBackground(new java.awt.Color(0, 0, 102));
         Colas2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Colas de prioridad");
-        Colas2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         ColasSF1.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane2.setViewportView(ColasSF1);
@@ -150,6 +151,12 @@ public class MainInterfaz extends javax.swing.JFrame {
         jScrollPane8.setViewportView(ColasSF4);
 
         Colas2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
+
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Colas de prioridad");
+        Colas2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 40));
 
         jPanel1.add(Colas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 200, 270, 370));
 
@@ -184,14 +191,14 @@ public class MainInterfaz extends javax.swing.JFrame {
         nombreZ.setForeground(new java.awt.Color(255, 255, 255));
         nombreZ.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombreZ.setText("Nombre");
-        jPanel2.add(nombreZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 130, 30));
+        jPanel2.add(nombreZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 170, 30));
 
         nombreSF.setBackground(new java.awt.Color(255, 255, 255));
         nombreSF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         nombreSF.setForeground(new java.awt.Color(255, 255, 255));
         nombreSF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombreSF.setText("Nombre");
-        jPanel2.add(nombreSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 130, 30));
+        jPanel2.add(nombreSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 170, 30));
 
         PuntosZ1.setBackground(new java.awt.Color(255, 255, 255));
         PuntosZ1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -516,11 +523,11 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel coronaLabelZ;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -1,3 +1,8 @@
+## [1.0.19] - 13/11/2023 (Juandb1507)
+
+- Aumento de prioridad de los characters cada 8 rondas (Funcional)
+- Ajustes etéticos UI
+
 ## [1.0.18] - 13/11/2023 (srvillarroel)
 
 - Cambios en la IU.
