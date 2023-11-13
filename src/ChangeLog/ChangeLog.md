@@ -1,4 +1,8 @@
-## [1.0.17] - 13/11/2023 (Juandb1507)
+## [1.0.18] - 13/11/2023 (srvillarroel)
+
+- Cambios en la IU.
+
+## [1.0.17] - 13/11/2023 (srvillarroel)
 
 - Se colocan las coronas al ganador.
 
