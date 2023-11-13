@@ -15,13 +15,14 @@ import javax.swing.JLabel;
  */
 public class MainInterfaz extends javax.swing.JFrame {
 
-    public static JLabel coronaLabel = new JLabel();
-
     /**
      * Creates new form MainInterfaz
      */
     public MainInterfaz() {
         initComponents();
+        coronaLabelZ.setVisible(false);
+        coronaLabelSF.setVisible(false);
+
     }
 
     /**
@@ -68,6 +69,8 @@ public class MainInterfaz extends javax.swing.JFrame {
         nombreSF = new javax.swing.JLabel();
         PuntosZ1 = new javax.swing.JLabel();
         PuntosSF1 = new javax.swing.JLabel();
+        coronaLabelZ = new javax.swing.JLabel();
+        coronaLabelSF = new javax.swing.JLabel();
         StreetFighterFondo = new javax.swing.JLabel();
         ZeldaFondo = new javax.swing.JLabel();
 
@@ -91,6 +94,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         Colas.setBackground(new java.awt.Color(0, 0, 102));
         Colas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Colas de prioridad");
         Colas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
@@ -198,13 +202,21 @@ public class MainInterfaz extends javax.swing.JFrame {
         PuntosZ1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PuntosZ1.setForeground(new java.awt.Color(255, 255, 255));
         PuntosZ1.setText("Puntos:");
-        jPanel2.add(PuntosZ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 50, 30));
+        jPanel2.add(PuntosZ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, 30));
 
         PuntosSF1.setBackground(new java.awt.Color(255, 255, 255));
         PuntosSF1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PuntosSF1.setForeground(new java.awt.Color(255, 255, 255));
         PuntosSF1.setText("Puntos:");
-        jPanel2.add(PuntosSF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 50, 30));
+        jPanel2.add(PuntosSF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 70, 30));
+
+        coronaLabelZ.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        coronaLabelZ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/crown.png"))); // NOI18N
+        jPanel2.add(coronaLabelZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 80, 60));
+
+        coronaLabelSF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        coronaLabelSF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/crown.png"))); // NOI18N
+        jPanel2.add(coronaLabelSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 80, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 440, 390));
 
@@ -263,7 +275,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         admin.initializeCharacters();
 
         // Simular rondas de la IA
-        for (int round = 1; round <= 5; round++) { // Ejemplo: 5 rondas
+        for (int round = 1; round <= 10; round++) { // Ejemplo: 5 rondas
             System.out.println("\n--- Ronda " + round + " ---");
 
             // Mostrar las colas antes de la ronda
@@ -283,6 +295,9 @@ public class MainInterfaz extends javax.swing.JFrame {
 
             // Mostrar las colas en la interfaz
             admin.actualizarColasEnInterfaz();
+
+//            coronaLabelZ.setVisible(false);
+//            coronaLabelSF.setVisible(false);
 
             // Actualizar las colas después de la ronda
 //            admin.updateQueues(); ESTO HACE QUE SE SUBAN LAS POSICIONES 1 DE LAS COLAS AL FINAL DE CADA RONDA.
@@ -305,13 +320,20 @@ public class MainInterfaz extends javax.swing.JFrame {
     }
 
     // Método para colocar la corona sobre la imagen del personaje ganador
-    public static void setCoronaPosition(JLabel characterImage) {
-        ImageIcon coronaIcon = new ImageIcon("src\\imgs\\VS.png");
-        coronaLabel.setIcon(coronaIcon);
-        int x = characterImage.getX() + (characterImage.getWidth() - coronaLabel.getWidth()) / 2;
-        int y = characterImage.getY() - coronaLabel.getHeight();
-        coronaLabel.setBounds(x, y, coronaLabel.getWidth(), coronaLabel.getHeight());
-        coronaLabel.setVisible(true);
+    public static void setCoronaPositionZelda(JLabel characterImage) {
+//        coronaLabel.setIcon(new ImageIcon("src\\imgs\\crown.png"));
+//        int x = characterImage.getX() + (characterImage.getWidth() - coronaLabel.getWidth()) / 2;
+//        int y = characterImage.getY() - coronaLabel.getHeight();
+//        coronaLabel.setBounds(x, y, coronaLabel.getWidth(), coronaLabel.getHeight());
+        coronaLabelZ.setVisible(true);
+    }
+
+    public static void setCoronaPositionStreetF(JLabel characterImage) {
+//        coronaLabel.setIcon(new ImageIcon("src\\imgs\\crown.png"));
+//        int x = characterImage.getX() + (characterImage.getWidth() - coronaLabel.getWidth()) / 2;
+//        int y = characterImage.getY() - coronaLabel.getHeight();
+//        coronaLabel.setBounds(x, y, coronaLabel.getWidth(), coronaLabel.getHeight());
+        coronaLabelSF.setVisible(true);
     }
 
     public static void setNombreZ(String name) {
@@ -484,6 +506,8 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel UniquePointsZelda;
     private javax.swing.JLabel ZeldaFondo;
     public static javax.swing.JLabel ZeldaIMG;
+    public static javax.swing.JLabel coronaLabelSF;
+    public static javax.swing.JLabel coronaLabelZ;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

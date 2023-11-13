@@ -1,3 +1,11 @@
+## [1.0.17] - 13/11/2023 (Juandb1507)
+
+- Se colocan las coronas al ganador.
+
+## [1.0.16] - 13/11/2023 (Juandb1507)
+
+- Lógica HandleWinner completa
+
 ## [1.0.15] - 13/11/2023 (srvillarroel)
 
 - Se muestran los puntos unicos de los personajes que pelean. 

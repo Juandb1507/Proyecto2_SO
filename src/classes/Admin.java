@@ -59,6 +59,10 @@ public class Admin {
 
         int NewpriorityIndex = character.getLevelPriority() - 1;
         int priorityIndex = character.getLevelPriority();
+        // Eliminar el personaje de las colas existentes (si está presente)
+        for (Queue<Character> queue : queues) {
+        queue.remove(character);
+    }
         queues[NewpriorityIndex].enqueue(character);
 
     }
