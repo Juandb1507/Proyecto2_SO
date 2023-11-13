@@ -1,4 +1,8 @@
-## [1.0.16] - 10/11/2023 (Juandb1507)
+## [1.0.18] - 13/11/2023 (Juandb1507)
+
+- Aumento de prioridad de los characters cada 8 rondas (Funcional)
+
+## [1.0.16] - 13/11/2023 (Juandb1507)
 
 - Lógica HandleWinner completa
 

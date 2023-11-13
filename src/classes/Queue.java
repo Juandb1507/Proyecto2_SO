@@ -46,12 +46,15 @@ public class Queue<T> {
         }
         return data;
     }
-      public void remove(T data) {
+
+      public void remove(String data) {
         Node<T> current = front;
         Node<T> previous = null;
-          System.out.println("NODO ACTUAL= "+current);
+        
+          
         while (current != null) {
             if ((current.getData().toString()).equals(data)) {
+                System.out.println("AUMENTO DE PRIORIDAD PARA "+ data);
                 if (previous == null) {
                     front = current.getNext();
                     if (front == null) {
