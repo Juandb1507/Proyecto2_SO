@@ -1,3 +1,11 @@
+## [1.0.16] - 10/11/2023 (Juandb1507)
+
+- Lógica HandleWinner completa
+
+## [1.0.15] - 13/11/2023 (srvillarroel)
+
+- Se muestran los puntos unicos de los personajes que pelean. 
+
 ## [1.0.14] - 13/11/2023 (srvillarroel)
 
 - Ya se cambian las imagenes de la interfaz segun el personaje.

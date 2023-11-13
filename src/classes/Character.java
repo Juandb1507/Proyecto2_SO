@@ -15,7 +15,7 @@ import java.util.Set;
 public class Character {
 
     private static int idCounter = 1;
-    private int roundCounterCharacter = 0;
+    private int characterRoundCounter = 0;
     private int id;
     private String studio;
     private String name;
@@ -121,10 +121,10 @@ public class Character {
     //Lógica para contador de rounds y cambio de Queue
     public void increaseRoundCounter() {
 
-        this.roundCounterCharacter++;
-//        System.out.println("Contador combate= " + roundCounterCharacter + " " + name + id);
-        if (this.roundCounterCharacter == 8) {
-            this.roundCounterCharacter = 0; // Resetea el round counter
+        characterRoundCounter++;
+//        System.out.println("Contador combate= " + characterRoundCounter + " " + name + id);
+        if (characterRoundCounter == 8) {
+            characterRoundCounter = 0; // Resetea el round counter
             if (levelPriority != 1) {
 
                 increasePriorityAndQueue(this, Admin.nintendoQueue1, Admin.nintendoQueue2, Admin.nintendoQueue3, Admin.bethesdaQueue1, Admin.bethesdaQueue2, Admin.bethesdaQueue3);
@@ -139,7 +139,7 @@ public class Character {
 //            levelPriority --;
 //          
 //            Admin.upgradeToQueue(character, nintendoQueue1, nintendoQueue2, nintendoQueue3);
-//            System.out.println("SE SUBIO EL NIVEL DE PRIORIDAD DE "+name+id+"-------------------------");
+//            System.out.println("SE SUBIO EL NIVEL DE PRIORIDAD DE "+character+"-------------------------");
         } else {
 //            levelPriority --;
 //            Admin.upgradeToQueue(character, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);

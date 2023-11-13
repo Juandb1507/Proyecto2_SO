@@ -46,7 +46,31 @@ public class Queue<T> {
         }
         return data;
     }
-  
+      public void remove(T data) {
+        Node<T> current = front;
+        Node<T> previous = null;
+          System.out.println("NODO ACTUAL= "+current);
+        while (current != null) {
+            if ((current.getData().toString()).equals(data)) {
+                if (previous == null) {
+                    front = current.getNext();
+                    if (front == null) {
+                        rear = null;
+                    }
+                } else {
+                    previous.setNext(current.getNext());
+                    if (current.getNext() == null) {
+                        rear = previous;
+                    }
+                }
+                length--;
+                return; // Elemento encontrado y eliminado
+            }
+
+            previous = current;
+            current = current.getNext();
+        }
+    }
     public T peek() {
         return isEmpty() ? null : front.getData();
     }
