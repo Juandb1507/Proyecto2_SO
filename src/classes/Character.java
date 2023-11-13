@@ -15,7 +15,7 @@ import java.util.Set;
 public class Character {
 
     private static int idCounter = 1;
-    private int roundCounter = 0;
+    private int roundCounterCharacter = 0;
     private int id;
     private String studio;
     private String name;
@@ -28,8 +28,8 @@ public class Character {
     private int uniquePoints; // Puntos únicos según nivel de prioridad
     private Set<String> specialAbilities; // Habilidades especiales
 
-    private static final String[] ZELDA_NAMES = {"Link", "Zelda", "Ganondorf", "Impa", "Mipha"}; //NINTENDO
-    private static final String[] STREET_FIGHTER_NAMES = {"Ryu", "Chun-Li", "Guile", "Dhalsim", "Blanka"}; //BETHESDA
+    private static final String[] ZELDA_NAMES = {"Link", "Sidon", "Ganondorf", "Impa", "Mipha"};
+    private static final String[] STREET_FIGHTER_NAMES = {"Ryu", "Chun-Li", "Guile", "Dhalsim", "Blanka"};
 
     private Character(String name, String studio) {
         this.id = idCounter++;
@@ -121,30 +121,29 @@ public class Character {
     //Lógica para contador de rounds y cambio de Queue
     public void increaseRoundCounter() {
 
-        this.roundCounter++;
-//        System.out.println("Contador combate= " + roundCounter + " " + name + id);
-        if (this.roundCounter == 8) {
-            this.roundCounter = 0; // Resetea el round counter
+        this.roundCounterCharacter++;
+//        System.out.println("Contador combate= " + roundCounterCharacter + " " + name + id);
+        if (this.roundCounterCharacter == 8) {
+            this.roundCounterCharacter = 0; // Resetea el round counter
             if (levelPriority != 1) {
-                
+
                 increasePriorityAndQueue(this, Admin.nintendoQueue1, Admin.nintendoQueue2, Admin.nintendoQueue3, Admin.bethesdaQueue1, Admin.bethesdaQueue2, Admin.bethesdaQueue3);
             }
         }
     }
 // AQUI SE PASAN A LA COLA DE MAYOR PRIORIDAD (AUN NO SE BORRA EL ANTERIOR POR LO QUE QUEDAN DUPLICADOS)
+
     private void increasePriorityAndQueue(Character character, Queue<Character> nintendoQueue1, Queue<Character> nintendoQueue2, Queue<Character> nintendoQueue3, Queue<Character> bethesdaQueue1, Queue<Character> bethesdaQueue2, Queue<Character> bethesdaQueue3) {
         if (studio == "N") {
-           
+
 //            levelPriority --;
 //          
 //            Admin.upgradeToQueue(character, nintendoQueue1, nintendoQueue2, nintendoQueue3);
-          
 //            System.out.println("SE SUBIO EL NIVEL DE PRIORIDAD DE "+name+id+"-------------------------");
-
         } else {
 //            levelPriority --;
 //            Admin.upgradeToQueue(character, bethesdaQueue1, bethesdaQueue2, bethesdaQueue3);
-             
+
         }
 
     }

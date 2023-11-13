@@ -1,3 +1,15 @@
+## [1.0.14] - 13/11/2023 (srvillarroel)
+
+- Ya se cambian las imagenes de la interfaz segun el personaje.
+
+## [1.0.13] - 11/11/2023 (srvillarroel)
+
+- Ya salen todos los datos de las colas en la interfaz.
+
+## [1.0.12] - 11/11/2023 (srvillarroel)
+
+- Merge de todos los cambios de BUGA + Los mios de la interfaz. Funcional. 
+
 ## [1.0.11] - 11/11/2023 (srvillarroel)
 
 - Se adelanto en mayor parte la interfaz, se agrego logica en el Admin para colocar la informacion de las colas en la interfaz.

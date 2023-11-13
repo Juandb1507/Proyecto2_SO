@@ -5,6 +5,8 @@
 package classes;
 
 import java.util.Random;
+import javax.swing.JLabel;
+import ui.MainInterfaz;
 
 /**
  *
@@ -170,8 +172,107 @@ public class Admin {
         }
     }
 
- 
-   
+    // Método para actualizar las colas en los JLabel
+    public static void actualizarColasEnInterfaz() {
+        // Para Nintendo
+        for (int i = 0; i < 4; i++) {
+            StringBuilder resultadoZelda = new StringBuilder();
+            JLabel colasZelda = MainInterfaz.getColasZelda(i + 1);
+
+            if (colasZelda != null) {
+                Queue<Character> currentQueue;
+
+                // Determinar la cola actual según el índice
+                if (i < 3) {
+                    resultadoZelda.append("Nintendo Queue " + (i + 1) + ":\n");
+                    currentQueue = getNintendoQueue(i + 1);
+                } else {
+                    resultadoZelda.append("Reinforcement Queue Nintendo:\n");
+                    currentQueue = reinforcementQueueNintendo;
+                }
+
+                resultadoZelda.append(printQueueToString(currentQueue));
+                colasZelda.setText(resultadoZelda.toString());
+            }
+        }
+
+        // Para Bethesda
+        for (int i = 0; i < 4; i++) {
+            StringBuilder resultadoSF = new StringBuilder();
+            JLabel colasSF = MainInterfaz.getColasSF(i + 1);
+
+            if (colasSF != null) {
+                Queue<Character> currentQueue;
+
+                // Determinar la cola actual según el índice
+                if (i < 3) {
+                    resultadoSF.append("Bethesda Queue " + (i + 1) + ":\n");
+                    currentQueue = getBethesdaQueue(i + 1);
+                } else {
+                    resultadoSF.append("Reinforcement Queue Bethesda:\n");
+                    currentQueue = reinforcementQueueBethesda;
+                }
+
+                resultadoSF.append(printQueueToString(currentQueue));
+                colasSF.setText(resultadoSF.toString());
+            }
+        }
+    }
+
+    private static Queue<Character> getNintendoQueue(int index) {
+        switch (index) {
+            case 1:
+                return nintendoQueue1;
+            case 2:
+                return nintendoQueue2;
+            case 3:
+                return nintendoQueue3;
+            case 4:
+                return reinforcementQueueNintendo;
+            default:
+                return null;
+        }
+    }
+
+    private static Queue<Character> getBethesdaQueue(int index) {
+        switch (index) {
+            case 1:
+                return bethesdaQueue1;
+            case 2:
+                return bethesdaQueue2;
+            case 3:
+                return bethesdaQueue3;
+            case 4:
+                return reinforcementQueueBethesda;
+            default:
+                return null;
+        }
+    }
+
+    private static <T> String printQueuesToString(Queue<T>... queues) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < queues.length; i++) {
+            result.append("Queue ").append(i + 1).append(": ");
+            result.append(printQueueToString(queues[i]));
+        }
+        return result.toString();
+    }
+
+    private static <T> String printQueueToString(Queue<T> queue) {
+        Queue<T> tempQueue = new Queue<>();
+        StringBuilder result = new StringBuilder();
+        while (!queue.isEmpty()) {
+            T data = queue.dequeue();
+            result.append(data).append(" ");
+            tempQueue.enqueue(data);
+        }
+        result.append("\n");
+        while (!tempQueue.isEmpty()) {
+            queue.enqueue(tempQueue.dequeue());
+        }
+        return result.toString();
+    }
+
     public void printQueues() {
         System.out.println("Nintendo Queues:");
         printQueues(nintendoQueue1, nintendoQueue2, nintendoQueue3);

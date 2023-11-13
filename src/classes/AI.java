@@ -4,6 +4,8 @@
  */
 package classes;
 
+import ui.MainInterfaz;
+
 /**
  *
  * @author juand
@@ -16,7 +18,7 @@ public class AI {
 
     public void processBattle(Character zeldaCharacter, Character streetFighterCharacter) {
         try {
-            Thread.sleep(10); //10 seg (COLOCAR 10000)
+            Thread.sleep(10000); //10 seg (COLOCAR 10000)
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -26,6 +28,9 @@ public class AI {
         // Utilizamos los puntos únicos para determinar el resultado
         int zeldaPoints = zeldaCharacter.getUniquePoints();
         int streetFighterPoints = streetFighterCharacter.getUniquePoints();
+
+        MainInterfaz.setZeldaIcon(zeldaCharacter.getName(), zeldaCharacter.getUniquePoints());
+        MainInterfaz.setSFIcon(streetFighterCharacter.getName(), streetFighterCharacter.getUniquePoints());
 
         if (result < WIN_PROBABILITY) {
             handleWinner(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints);
@@ -44,7 +49,7 @@ public class AI {
         }
         Admin.incrementRoundCounters(); // Incrementa los contadores de todas las colas
         //Generador de personajes (80% de probabilidad)
-        Admin.roundCounter ++;
+        Admin.roundCounter++;
         if (Admin.roundCounter % 2 == 0) { // Se han completado dos rondas
             if (Admin.shouldGenerateCharacters()) {
                 Admin.generateCharacters();

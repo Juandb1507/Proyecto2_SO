@@ -6,6 +6,7 @@ package ui;
 
 import classes.AI;
 import classes.Admin;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
@@ -31,11 +32,11 @@ public class MainInterfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jSlider1 = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Colas = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ColasZelda1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -44,8 +45,8 @@ public class MainInterfaz extends javax.swing.JFrame {
         ColasZelda3 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         ColasZelda4 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         Colas2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ColasSF1 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -54,11 +55,16 @@ public class MainInterfaz extends javax.swing.JFrame {
         ColasSF3 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         ColasSF4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        UniquePointsZelda = new javax.swing.JLabel();
+        UniquePointsSF = new javax.swing.JLabel();
         StreetIMG = new javax.swing.JLabel();
         ZeldaIMG = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         StreetFighterFondo = new javax.swing.JLabel();
         ZeldaFondo = new javax.swing.JLabel();
 
@@ -66,6 +72,9 @@ public class MainInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSlider1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 720, 480, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel1.setText("Street Fighter 6");
@@ -81,10 +90,6 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         Colas.setBackground(new java.awt.Color(0, 0, 102));
         Colas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setText("Colas de prioridad");
-        Colas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         ColasZelda1.setBackground(new java.awt.Color(0, 0, 255));
         ColasZelda1.setForeground(new java.awt.Color(0, 51, 255));
@@ -110,14 +115,16 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         Colas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
 
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Colas de prioridad");
+        Colas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 40));
+
         jPanel1.add(Colas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 270, 360));
 
         Colas2.setBackground(new java.awt.Color(0, 0, 102));
         Colas2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Colas de prioridad");
-        Colas2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         ColasSF1.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane2.setViewportView(ColasSF1);
@@ -139,6 +146,12 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         Colas2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
 
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Colas de prioridad");
+        Colas2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 40));
+
         jPanel1.add(Colas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 200, 270, 370));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -154,12 +167,28 @@ public class MainInterfaz extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/VS.png"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 80, 100));
 
+        UniquePointsZelda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        UniquePointsZelda.setText("0");
+        jPanel2.add(UniquePointsZelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 50, -1));
+
+        UniquePointsSF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        UniquePointsSF.setText("0");
+        jPanel2.add(UniquePointsSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 50, -1));
+
         StreetIMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Ryu.jpg"))); // NOI18N
-        jPanel2.add(StreetIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 150, 150));
+        jPanel2.add(StreetIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 150, 150));
 
         ZeldaIMG.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         ZeldaIMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Link.jpg"))); // NOI18N
-        jPanel2.add(ZeldaIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, 150));
+        jPanel2.add(ZeldaIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 150, 150));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("Puntos:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setText("Puntos:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 440, 390));
 
@@ -249,6 +278,16 @@ public class MainInterfaz extends javax.swing.JFrame {
         admin.actualizarColasEnInterfaz();
     }
 
+    public static void setZeldaIcon(String name, int power) {
+        ZeldaIMG.setIcon(new ImageIcon("src\\imgs\\" + name + ".jpg"));
+        UniquePointsZelda.setText(Integer.toString(power));
+    }
+
+    public static void setSFIcon(String name, int power) {
+        StreetIMG.setIcon(new ImageIcon("src\\imgs\\" + name + ".jpg"));
+        UniquePointsSF.setText(Integer.toString(power));
+    }
+    
     public static JLabel getColasZelda(int index) {
         switch (index) {
             case 1:
@@ -293,6 +332,22 @@ public class MainInterfaz extends javax.swing.JFrame {
 
     public static void setZeldaIMG(JLabel ZeldaIMG) {
         MainInterfaz.ZeldaIMG = ZeldaIMG;
+    }
+
+    public static JLabel getUniquePointsSF() {
+        return UniquePointsSF;
+    }
+
+    public static void setUniquePointsSF(JLabel UniquePointsSF) {
+        MainInterfaz.UniquePointsSF = UniquePointsSF;
+    }
+
+    public static JLabel getUniquePointsZelda() {
+        return UniquePointsZelda;
+    }
+
+    public static void setUniquePointsZelda(JLabel UniquePointsZelda) {
+        MainInterfaz.UniquePointsZelda = UniquePointsZelda;
     }
 
     public static JLabel getColasSF1() {
@@ -358,6 +413,8 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static void setColasZelda4(JLabel ColasZelda4) {
         MainInterfaz.ColasZelda4 = ColasZelda4;
     }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Colas;
     private javax.swing.JPanel Colas2;
@@ -371,15 +428,19 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel ColasZelda4;
     private javax.swing.JLabel StreetFighterFondo;
     public static javax.swing.JLabel StreetIMG;
+    public static javax.swing.JLabel UniquePointsSF;
+    public static javax.swing.JLabel UniquePointsZelda;
     private javax.swing.JLabel ZeldaFondo;
     public static javax.swing.JLabel ZeldaIMG;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -390,5 +451,6 @@ public class MainInterfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
 }
