@@ -28,9 +28,12 @@ public class AI {
         // Utilizamos los puntos únicos para determinar el resultado
         int zeldaPoints = zeldaCharacter.getUniquePoints();
         int streetFighterPoints = streetFighterCharacter.getUniquePoints();
-
+        
+        // Setear el nombre imagen y puntos unicos de los personajes a pelear.
         MainInterfaz.setZeldaIcon(zeldaCharacter.getName(), zeldaCharacter.getUniquePoints());
+        MainInterfaz.setNombreZ(zeldaCharacter.getName());
         MainInterfaz.setSFIcon(streetFighterCharacter.getName(), streetFighterCharacter.getUniquePoints());
+        MainInterfaz.setNombreSF(streetFighterCharacter.getName());
 
         if (result < WIN_PROBABILITY) {
             handleWinner(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints);
