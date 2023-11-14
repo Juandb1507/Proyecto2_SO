@@ -34,6 +34,7 @@ public class MainInterfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        SliderAITimer = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -70,6 +71,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         coronaLabelZ = new javax.swing.JLabel();
         coronaLabelSF = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         StreetFighterFondo = new javax.swing.JLabel();
         ZeldaFondo = new javax.swing.JLabel();
 
@@ -77,6 +79,22 @@ public class MainInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SliderAITimer.setBackground(new java.awt.Color(0, 0, 0));
+        SliderAITimer.setForeground(new java.awt.Color(255, 0, 0));
+        SliderAITimer.setMajorTickSpacing(1);
+        SliderAITimer.setMaximum(10);
+        SliderAITimer.setMinimum(1);
+        SliderAITimer.setPaintLabels(true);
+        SliderAITimer.setPaintTicks(true);
+        SliderAITimer.setSnapToTicks(true);
+        SliderAITimer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        SliderAITimer.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SliderAITimerStateChanged(evt);
+            }
+        });
+        jPanel1.add(SliderAITimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 590, 440, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,25 +116,29 @@ public class MainInterfaz extends javax.swing.JFrame {
         Colas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ColasZelda1.setBackground(new java.awt.Color(0, 0, 255));
-        ColasZelda1.setForeground(new java.awt.Color(0, 51, 255));
+        ColasZelda1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        ColasZelda1.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(ColasZelda1);
 
         Colas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 60));
 
         ColasZelda2.setBackground(new java.awt.Color(0, 0, 255));
-        ColasZelda2.setForeground(new java.awt.Color(0, 51, 255));
+        ColasZelda2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        ColasZelda2.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane3.setViewportView(ColasZelda2);
 
         Colas.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 60));
 
         ColasZelda3.setBackground(new java.awt.Color(0, 0, 255));
-        ColasZelda3.setForeground(new java.awt.Color(0, 51, 255));
+        ColasZelda3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        ColasZelda3.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane4.setViewportView(ColasZelda3);
 
         Colas.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 270, 60));
 
         ColasZelda4.setBackground(new java.awt.Color(0, 0, 255));
-        ColasZelda4.setForeground(new java.awt.Color(0, 51, 255));
+        ColasZelda4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        ColasZelda4.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane5.setViewportView(ColasZelda4);
 
         Colas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
@@ -133,21 +155,25 @@ public class MainInterfaz extends javax.swing.JFrame {
         Colas2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ColasSF1.setBackground(new java.awt.Color(0, 0, 0));
+        ColasSF1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jScrollPane2.setViewportView(ColasSF1);
 
         Colas2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 60));
 
         ColasSF2.setBackground(new java.awt.Color(0, 0, 0));
+        ColasSF2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jScrollPane6.setViewportView(ColasSF2);
 
         Colas2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 60));
 
         ColasSF3.setBackground(new java.awt.Color(0, 0, 0));
+        ColasSF3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jScrollPane7.setViewportView(ColasSF3);
 
         Colas2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 270, 60));
 
         ColasSF4.setBackground(new java.awt.Color(0, 0, 0));
+        ColasSF4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jScrollPane8.setViewportView(ColasSF4);
 
         Colas2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
@@ -167,14 +193,14 @@ public class MainInterfaz extends javax.swing.JFrame {
         UniquePointsSF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         UniquePointsSF.setForeground(new java.awt.Color(255, 255, 255));
         UniquePointsSF.setText("0");
-        jPanel2.add(UniquePointsSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 50, 30));
+        jPanel2.add(UniquePointsSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 50, 30));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/VS.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 80, 100));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 80, 100));
 
         StreetIMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/question.jpg"))); // NOI18N
-        jPanel2.add(StreetIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 150, 150));
+        jPanel2.add(StreetIMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 150, 150));
 
         ZeldaIMG.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         ZeldaIMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/question.jpg"))); // NOI18N
@@ -198,7 +224,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         nombreSF.setForeground(new java.awt.Color(255, 255, 255));
         nombreSF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombreSF.setText("Nombre");
-        jPanel2.add(nombreSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 170, 30));
+        jPanel2.add(nombreSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 170, 30));
 
         PuntosZ1.setBackground(new java.awt.Color(255, 255, 255));
         PuntosZ1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -210,7 +236,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         PuntosSF1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PuntosSF1.setForeground(new java.awt.Color(255, 255, 255));
         PuntosSF1.setText("Puntos:");
-        jPanel2.add(PuntosSF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 70, 30));
+        jPanel2.add(PuntosSF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 70, 30));
 
         coronaLabelZ.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         coronaLabelZ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/crown.png"))); // NOI18N
@@ -218,15 +244,19 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         coronaLabelSF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         coronaLabelSF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/crown.png"))); // NOI18N
-        jPanel2.add(coronaLabelSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 80, 60));
+        jPanel2.add(coronaLabelSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 80, 60));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Estado de la pelea");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 160, 40));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 160, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 440, 390));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Timer (seg)");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 460, 450));
 
         StreetFighterFondo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         StreetFighterFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/StreetFighterFondo.jpg"))); // NOI18N
@@ -240,6 +270,10 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SliderAITimerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderAITimerStateChanged
+       AI.time = SliderAITimer.getValue();
+    }//GEN-LAST:event_SliderAITimerStateChanged
 
     /**
      * @param args the command line arguments
@@ -283,7 +317,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         admin.initializeCharacters();
 
         // Simular rondas de la IA
-        for (int round = 1; round <= 10; round++) { // Ejemplo: 5 rondas
+        for (int round = 1; round <= 1000; round++) { // Ejemplo: 1000 rondas
             System.out.println("\n--- Ronda " + round + " ---");
 
             // Mostrar las colas antes de la ronda
@@ -297,12 +331,12 @@ public class MainInterfaz extends javax.swing.JFrame {
             if (zeldaCharacter != null && streetFighterCharacter != null) {
                 System.out.println("Inicia el combate: " + zeldaCharacter.getName() + " vs " + streetFighterCharacter.getName());
             }
+            // Mostrar las colas en la interfaz
+            admin.actualizarColasEnInterfaz();
 
             // Procesar la batalla en la IA
             ai.processBattle(zeldaCharacter, streetFighterCharacter);
 
-            // Mostrar las colas en la interfaz
-            admin.actualizarColasEnInterfaz();
 
             // Actualizar las colas después de la ronda
 //            admin.updateQueues(); ESTO HACE QUE SE SUBAN LAS POSICIONES 1 DE LAS COLAS AL FINAL DE CADA RONDA.
@@ -513,6 +547,7 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel ColasZelda4;
     public static javax.swing.JLabel PuntosSF1;
     public static javax.swing.JLabel PuntosZ1;
+    private javax.swing.JSlider SliderAITimer;
     private javax.swing.JLabel StreetFighterFondo;
     public static javax.swing.JLabel StreetIMG;
     public static javax.swing.JLabel UniquePointsSF;
@@ -527,6 +562,7 @@ public class MainInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -1,3 +1,8 @@
+## [1.0.20] - 13/11/2023 (Juandb1507)
+
+- Se colocó el control de tiempo (Slider) y la lógica para su funcionamiento
+- Se modificó el orden de ejecución en mainUI
+
 ## [1.0.19] - 13/11/2023 (Juandb1507)
 
 - Aumento de prioridad de los characters cada 8 rondas (Funcional)
