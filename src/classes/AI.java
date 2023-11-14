@@ -11,7 +11,7 @@ import ui.MainInterfaz;
  * @author juand
  */
 public class AI {
-
+    public static int time = 10;
     private static final double WIN_PROBABILITY = 0.4;
     private static final double DRAW_PROBABILITY = 0.27;
     private static final double NO_COMBAT_PROBABILITY = 0.33;
@@ -21,7 +21,7 @@ public class AI {
         MainInterfaz.setDefStats();
         
         try {
-            Thread.sleep(8000); //10 seg (COLOCAR 10000)
+            Thread.sleep(1000); 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -35,7 +35,11 @@ public class AI {
         // Setear el nombre imagen y puntos unicos de los personajes a pelear.
         MainInterfaz.setZeldaIcon(zeldaCharacter.getName(), zeldaCharacter.getUniquePoints());
         MainInterfaz.setSFIcon(streetFighterCharacter.getName(), streetFighterCharacter.getUniquePoints());
-
+ try {
+            Thread.sleep(1000*time); //DECIDIENDO GANADOR
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         if (result < WIN_PROBABILITY) {
             if (zeldaPoints > streetFighterPoints) {
                 handleWinnerZelda(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints);
