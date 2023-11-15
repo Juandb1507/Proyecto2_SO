@@ -206,7 +206,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         UniquePointsSF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         UniquePointsSF.setForeground(new java.awt.Color(255, 255, 255));
         UniquePointsSF.setText("0");
-        jPanel2.add(UniquePointsSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 50, 30));
+        jPanel2.add(UniquePointsSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 50, 30));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/VS.png"))); // NOI18N

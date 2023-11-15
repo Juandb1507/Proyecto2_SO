@@ -89,7 +89,7 @@ public class AI {
 
         try {
             MainInterfaz.AIState.setText("RESULTADO");
-            Thread.sleep(3000);
+            Thread.sleep(2500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
