@@ -11,17 +11,20 @@ import ui.MainInterfaz;
  * @author juand
  */
 public class AI {
+
     public static int time = 10;
     private static final double WIN_PROBABILITY = 0.4;
     private static final double DRAW_PROBABILITY = 0.27;
     private static final double NO_COMBAT_PROBABILITY = 0.33;
+    public static int ganadoresZelda = 0;
+    public static int ganadoresSF = 0;
 
     public void processBattle(Character zeldaCharacter, Character streetFighterCharacter) {
-        
+
         MainInterfaz.setDefStats();
-        
+
         try {
-            Thread.sleep(1000); 
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -35,8 +38,8 @@ public class AI {
         // Setear el nombre imagen y puntos unicos de los personajes a pelear.
         MainInterfaz.setZeldaIcon(zeldaCharacter.getName(), zeldaCharacter.getUniquePoints());
         MainInterfaz.setSFIcon(streetFighterCharacter.getName(), streetFighterCharacter.getUniquePoints());
- try {
-            Thread.sleep(1000*time); //DECIDIENDO GANADOR
+        try {
+            Thread.sleep(1000 * time); //DECIDIENDO GANADOR
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -44,9 +47,13 @@ public class AI {
             if (zeldaPoints > streetFighterPoints) {
                 handleWinnerZelda(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints);
                 MainInterfaz.setCoronaPositionZelda(MainInterfaz.ZeldaIMG);
+                ganadoresZelda++;
+                MainInterfaz.marcadorZelda(ganadoresZelda);
             } else {
                 handleWinnerStreetFighter(zeldaCharacter, streetFighterCharacter, zeldaPoints, streetFighterPoints);
                 MainInterfaz.setCoronaPositionStreetF(MainInterfaz.StreetIMG);
+                ganadoresSF++;
+                MainInterfaz.marcadorSF(ganadoresSF);
             }
         } else if (result < WIN_PROBABILITY + DRAW_PROBABILITY) {
             handleDraw(zeldaCharacter, streetFighterCharacter);
@@ -80,7 +87,7 @@ public class AI {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
+
         MainInterfaz.coronaLabelSF.setVisible(false);
         MainInterfaz.coronaLabelZ.setVisible(false);
         MainInterfaz.empateLabel.setVisible(false);
