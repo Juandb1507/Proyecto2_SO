@@ -1,3 +1,7 @@
+## [1.0.23] - 13/11/2023 (Juandb1507)
+
+- Lógica para visualizar el estado de la AI.
+
 ## [1.0.22] - 15/11/2023 (srvillarroel)
 
 - Marcador de puntos

@@ -73,7 +73,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         PuntosSF1 = new javax.swing.JLabel();
         coronaLabelZ = new javax.swing.JLabel();
         coronaLabelSF = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        AIState = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         empateLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -258,11 +258,12 @@ public class MainInterfaz extends javax.swing.JFrame {
         coronaLabelSF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/crown.png"))); // NOI18N
         jPanel2.add(coronaLabelSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 80, 60));
 
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Estado de la pelea");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 160, 40));
+        AIState.setBackground(new java.awt.Color(255, 255, 255));
+        AIState.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        AIState.setForeground(new java.awt.Color(255, 255, 255));
+        AIState.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AIState.setText("CREANDO COLAS");
+        jPanel2.add(AIState, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 150, 50));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Timer (seg)");
@@ -616,8 +617,11 @@ public class MainInterfaz extends javax.swing.JFrame {
         MainInterfaz.ColasZelda4 = ColasZelda4;
     }
 
+ 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel AIState;
     private javax.swing.JPanel Colas;
     private javax.swing.JPanel Colas2;
     public static javax.swing.JLabel ColasSF1;
@@ -644,7 +648,6 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel ganadoresSF;
     public static javax.swing.JLabel ganadoresZelda;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;

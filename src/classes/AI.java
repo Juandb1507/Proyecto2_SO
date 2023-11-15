@@ -38,8 +38,13 @@ public class AI {
         // Setear el nombre imagen y puntos unicos de los personajes a pelear.
         MainInterfaz.setZeldaIcon(zeldaCharacter.getName(), zeldaCharacter.getUniquePoints());
         MainInterfaz.setSFIcon(streetFighterCharacter.getName(), streetFighterCharacter.getUniquePoints());
-        try {
-            Thread.sleep(1000 * time); //DECIDIENDO GANADOR
+ try {
+        if(Admin.roundCounter < 1){
+            
+        }else{
+            MainInterfaz.AIState.setText("¡PELEANDO!");
+        }
+            Thread.sleep(1000*time); //DECIDIENDO GANADOR
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -83,11 +88,12 @@ public class AI {
         }
 
         try {
-            Thread.sleep(4000); //10 seg (COLOCAR 10000)
+             MainInterfaz.AIState.setText("RESULTADO");
+            Thread.sleep(4000); 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        MainInterfaz.AIState.setText("ESPERANDO");
         MainInterfaz.coronaLabelSF.setVisible(false);
         MainInterfaz.coronaLabelZ.setVisible(false);
         MainInterfaz.empateLabel.setVisible(false);
