@@ -1,3 +1,7 @@
+## [1.0.21] - 15/11/2023 (srvillarroel)
+
+- Se agrego imagenes para cuando el resultado sea empate y cancelado.
+
 ## [1.0.20] - 13/11/2023 (Juandb1507)
 
 - Se colocó el control de tiempo (Slider) y la lógica para su funcionamiento

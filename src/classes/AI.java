@@ -50,8 +50,10 @@ public class AI {
             }
         } else if (result < WIN_PROBABILITY + DRAW_PROBABILITY) {
             handleDraw(zeldaCharacter, streetFighterCharacter);
+            MainInterfaz.setEmpateVisible();
         } else {
             handleNoCombat(zeldaCharacter, streetFighterCharacter);
+            MainInterfaz.setCancelVisible();
         }
         // Después del combate, probabilidad del 40% de mover un personaje de refuerzo a la cola de prioridad 1
         if (Admin.shouldMoveToPriority1()) {
@@ -74,13 +76,15 @@ public class AI {
         }
 
         try {
-            Thread.sleep(2000); //10 seg (COLOCAR 10000)
+            Thread.sleep(4000); //10 seg (COLOCAR 10000)
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         
         MainInterfaz.coronaLabelSF.setVisible(false);
         MainInterfaz.coronaLabelZ.setVisible(false);
+        MainInterfaz.empateLabel.setVisible(false);
+        MainInterfaz.cancelLabel.setVisible(false);
     }
 
     private void handleWinnerZelda(Character winner, Character loser, int winnerPoints, int loserPoints) {

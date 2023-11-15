@@ -22,6 +22,8 @@ public class MainInterfaz extends javax.swing.JFrame {
         initComponents();
         coronaLabelZ.setVisible(false);
         coronaLabelSF.setVisible(false);
+        empateLabel.setVisible(false);
+        cancelLabel.setVisible(false);
     }
 
     /**
@@ -59,6 +61,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         ColasSF4 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        cancelLabel = new javax.swing.JLabel();
         UniquePointsSF = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         StreetIMG = new javax.swing.JLabel();
@@ -72,6 +75,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         coronaLabelSF = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        empateLabel = new javax.swing.JLabel();
         StreetFighterFondo = new javax.swing.JLabel();
         ZeldaFondo = new javax.swing.JLabel();
 
@@ -189,6 +193,10 @@ public class MainInterfaz extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cancelLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cancelLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Cancel.png"))); // NOI18N
+        jPanel2.add(cancelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 420, 150));
+
         UniquePointsSF.setBackground(new java.awt.Color(255, 255, 255));
         UniquePointsSF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         UniquePointsSF.setForeground(new java.awt.Color(255, 255, 255));
@@ -256,6 +264,10 @@ public class MainInterfaz extends javax.swing.JFrame {
         jLabel4.setText("Timer (seg)");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
 
+        empateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        empateLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bruja.jpg"))); // NOI18N
+        jPanel2.add(empateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 80, 80));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 460, 450));
 
         StreetFighterFondo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -272,7 +284,7 @@ public class MainInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SliderAITimerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderAITimerStateChanged
-       AI.time = SliderAITimer.getValue();
+        AI.time = SliderAITimer.getValue();
     }//GEN-LAST:event_SliderAITimerStateChanged
 
     /**
@@ -337,7 +349,6 @@ public class MainInterfaz extends javax.swing.JFrame {
             // Procesar la batalla en la IA
             ai.processBattle(zeldaCharacter, streetFighterCharacter);
 
-
             // Actualizar las colas después de la ronda
 //            admin.updateQueues(); ESTO HACE QUE SE SUBAN LAS POSICIONES 1 DE LAS COLAS AL FINAL DE CADA RONDA.
         }
@@ -381,6 +392,30 @@ public class MainInterfaz extends javax.swing.JFrame {
 
     public static void setCoronaPositionStreetF(JLabel characterImage) {
         coronaLabelSF.setVisible(true);
+    }
+
+    public static void setEmpateVisible() {
+        empateLabel.setVisible(true);
+    }
+
+    public static void setCancelVisible() {
+        cancelLabel.setVisible(true);
+    }
+
+    public static JLabel getCancelLabel() {
+        return cancelLabel;
+    }
+
+    public static void setCancelLabel(JLabel cancelLabel) {
+        MainInterfaz.cancelLabel = cancelLabel;
+    }
+
+    public static JLabel getEmpateLabel() {
+        return empateLabel;
+    }
+
+    public static void setEmpateLabel(JLabel empateLabel) {
+        MainInterfaz.empateLabel = empateLabel;
     }
 
     public static void setNombreZ(String name) {
@@ -554,8 +589,10 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel UniquePointsZelda;
     private javax.swing.JLabel ZeldaFondo;
     public static javax.swing.JLabel ZeldaIMG;
+    public static javax.swing.JLabel cancelLabel;
     public static javax.swing.JLabel coronaLabelSF;
     public static javax.swing.JLabel coronaLabelZ;
+    public static javax.swing.JLabel empateLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
