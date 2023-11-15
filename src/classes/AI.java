@@ -38,13 +38,13 @@ public class AI {
         // Setear el nombre imagen y puntos unicos de los personajes a pelear.
         MainInterfaz.setZeldaIcon(zeldaCharacter.getName(), zeldaCharacter.getUniquePoints());
         MainInterfaz.setSFIcon(streetFighterCharacter.getName(), streetFighterCharacter.getUniquePoints());
- try {
-        if(Admin.roundCounter < 1){
-            
-        }else{
-            MainInterfaz.AIState.setText("¡PELEANDO!");
-        }
-            Thread.sleep(1000*time); //DECIDIENDO GANADOR
+        try {
+            if (Admin.roundCounter < 1) {
+
+            } else {
+                MainInterfaz.AIState.setText("¡PELEANDO!");
+            }
+            Thread.sleep(1000 * time); //DECIDIENDO GANADOR
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -88,8 +88,8 @@ public class AI {
         }
 
         try {
-             MainInterfaz.AIState.setText("RESULTADO");
-            Thread.sleep(4000); 
+            MainInterfaz.AIState.setText("RESULTADO");
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -104,12 +104,14 @@ public class AI {
         System.out.println("¡Combate terminado! El ganador es: " + winner.getName()
                 + " (ID: " + winner.getId() + ") con " + winnerPoints + " puntos únicos.");
         // logica para añadir a la lista de ganadores
+        MainInterfaz.agregarGanador(winner.getName()+winner.getId());
     }
 
     private void handleWinnerStreetFighter(Character loser, Character winner, int loserPoints, int winnerPoints) {
         System.out.println("¡Combate terminado! El ganador es: " + winner.getName()
                 + " (ID: " + winner.getId() + ") con " + winnerPoints + " puntos únicos.");
         // logica para añadir a la lista de ganadores
+        MainInterfaz.agregarGanador(winner.getName()+winner.getId());
     }
 
     private void handleDraw(Character character1, Character character2) {

@@ -1,4 +1,9 @@
-## [1.0.23] - 13/11/2023 (Juandb1507)
+## [1.0.24] - 15/11/2023 (Juandb1507)
+
+- Lista de ganadores en UI.
+- Cambios estéticos UI
+
+## [1.0.23] - 15/11/2023 (Juandb1507)
 
 - Lógica para visualizar el estado de la AI.
 
