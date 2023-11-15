@@ -1,4 +1,4 @@
-## [1.0.21] - 15/11/2023 (srvillarroel)
+## [1.0.22] - 15/11/2023 (srvillarroel)
 
 - Marcador de puntos
 
