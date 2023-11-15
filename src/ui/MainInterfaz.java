@@ -6,6 +6,7 @@ package ui;
 
 import classes.AI;
 import classes.Admin;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -14,7 +15,7 @@ import javax.swing.JLabel;
  * @author Sebastian Rodriguez
  */
 public class MainInterfaz extends javax.swing.JFrame {
-
+    public static DefaultListModel<String> modeloListaGanadores;
     /**
      * Creates new form MainInterfaz
      */
@@ -24,6 +25,9 @@ public class MainInterfaz extends javax.swing.JFrame {
         coronaLabelSF.setVisible(false);
         empateLabel.setVisible(false);
         cancelLabel.setVisible(false);
+        modeloListaGanadores = new DefaultListModel<>();
+        ListaGanadores.setModel(modeloListaGanadores);
+        
     }
 
     /**
@@ -36,7 +40,6 @@ public class MainInterfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        SliderAITimer = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -76,6 +79,10 @@ public class MainInterfaz extends javax.swing.JFrame {
         AIState = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         empateLabel = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        ListaGanadores = new javax.swing.JList<>();
+        jLabel6 = new javax.swing.JLabel();
+        SliderAITimer = new javax.swing.JSlider();
         jPanel4 = new javax.swing.JPanel();
         ganadoresSF = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -87,22 +94,6 @@ public class MainInterfaz extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        SliderAITimer.setBackground(new java.awt.Color(0, 0, 0));
-        SliderAITimer.setForeground(new java.awt.Color(255, 0, 0));
-        SliderAITimer.setMajorTickSpacing(1);
-        SliderAITimer.setMaximum(10);
-        SliderAITimer.setMinimum(1);
-        SliderAITimer.setPaintLabels(true);
-        SliderAITimer.setPaintTicks(true);
-        SliderAITimer.setSnapToTicks(true);
-        SliderAITimer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        SliderAITimer.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                SliderAITimerStateChanged(evt);
-            }
-        });
-        jPanel1.add(SliderAITimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 590, 440, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,35 +112,40 @@ public class MainInterfaz extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 490, 80));
 
         Colas.setBackground(new java.awt.Color(0, 0, 102));
+        Colas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         Colas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ColasZelda1.setBackground(new java.awt.Color(0, 0, 255));
         ColasZelda1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         ColasZelda1.setForeground(new java.awt.Color(0, 0, 0));
+        ColasZelda1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jScrollPane1.setViewportView(ColasZelda1);
 
-        Colas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 60));
+        Colas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 270, 60));
 
         ColasZelda2.setBackground(new java.awt.Color(0, 0, 255));
         ColasZelda2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         ColasZelda2.setForeground(new java.awt.Color(0, 0, 0));
+        ColasZelda2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jScrollPane3.setViewportView(ColasZelda2);
 
-        Colas.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 60));
+        Colas.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 270, 60));
 
         ColasZelda3.setBackground(new java.awt.Color(0, 0, 255));
         ColasZelda3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         ColasZelda3.setForeground(new java.awt.Color(0, 0, 0));
+        ColasZelda3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jScrollPane4.setViewportView(ColasZelda3);
 
-        Colas.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 270, 60));
+        Colas.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 270, 60));
 
         ColasZelda4.setBackground(new java.awt.Color(0, 0, 255));
         ColasZelda4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         ColasZelda4.setForeground(new java.awt.Color(0, 0, 0));
+        ColasZelda4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jScrollPane5.setViewportView(ColasZelda4);
 
-        Colas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
+        Colas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 270, 60));
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -157,34 +153,39 @@ public class MainInterfaz extends javax.swing.JFrame {
         jLabel12.setText("Colas de prioridad");
         Colas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 40));
 
-        jPanel1.add(Colas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 270, 360));
+        jPanel1.add(Colas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 290, 360));
 
         Colas2.setBackground(new java.awt.Color(102, 0, 0));
+        Colas2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         Colas2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ColasSF1.setBackground(new java.awt.Color(0, 0, 0));
         ColasSF1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        ColasSF1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jScrollPane2.setViewportView(ColasSF1);
 
-        Colas2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 60));
+        Colas2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 270, 60));
 
         ColasSF2.setBackground(new java.awt.Color(0, 0, 0));
         ColasSF2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        ColasSF2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jScrollPane6.setViewportView(ColasSF2);
 
-        Colas2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 60));
+        Colas2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 270, 60));
 
         ColasSF3.setBackground(new java.awt.Color(0, 0, 0));
         ColasSF3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        ColasSF3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jScrollPane7.setViewportView(ColasSF3);
 
-        Colas2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 270, 60));
+        Colas2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 270, 60));
 
         ColasSF4.setBackground(new java.awt.Color(0, 0, 0));
         ColasSF4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        ColasSF4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jScrollPane8.setViewportView(ColasSF4);
 
-        Colas2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 270, 60));
+        Colas2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 270, 60));
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -192,7 +193,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         jLabel13.setText("Colas de prioridad");
         Colas2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 40));
 
-        jPanel1.add(Colas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 200, 270, 370));
+        jPanel1.add(Colas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 200, 290, 370));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -267,20 +268,58 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Timer (seg)");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, -1, -1));
 
         empateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         empateLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bruja.jpg"))); // NOI18N
         jPanel2.add(empateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 80, 80));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 460, 450));
+        jScrollPane9.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        ListaGanadores.setBackground(new java.awt.Color(0, 0, 0));
+        ListaGanadores.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ListaGanadores.setForeground(new java.awt.Color(255, 255, 255));
+        ListaGanadores.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Ganador 1", "Ganador 2", "Ganador 3", "Ganador 4", "Ganadro 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane9.setViewportView(ListaGanadores);
+
+        jPanel2.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 290, 80));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("GANADORES =");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
+
+        SliderAITimer.setBackground(new java.awt.Color(0, 0, 0));
+        SliderAITimer.setForeground(new java.awt.Color(255, 0, 0));
+        SliderAITimer.setMajorTickSpacing(1);
+        SliderAITimer.setMaximum(10);
+        SliderAITimer.setMinimum(1);
+        SliderAITimer.setPaintLabels(true);
+        SliderAITimer.setPaintTicks(true);
+        SliderAITimer.setSnapToTicks(true);
+        SliderAITimer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        SliderAITimer.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SliderAITimerStateChanged(evt);
+            }
+        });
+        jPanel2.add(SliderAITimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 440, 50));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 460, 580));
 
         jPanel4.setBackground(new java.awt.Color(102, 0, 0));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ganadoresSF.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        ganadoresSF.setForeground(new java.awt.Color(255, 255, 255));
         ganadoresSF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ganadoresSF.setText("0");
+        ganadoresSF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         jPanel4.add(ganadoresSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, 110, 70));
@@ -289,8 +328,10 @@ public class MainInterfaz extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ganadoresZelda.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        ganadoresZelda.setForeground(new java.awt.Color(255, 255, 255));
         ganadoresZelda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ganadoresZelda.setText("0");
+        ganadoresZelda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         jPanel3.add(ganadoresZelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 110, 70));
@@ -616,9 +657,10 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static void setColasZelda4(JLabel ColasZelda4) {
         MainInterfaz.ColasZelda4 = ColasZelda4;
     }
-
- 
-
+    
+    public static void agregarGanador(String elemento) {
+        modeloListaGanadores.addElement(elemento);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel AIState;
@@ -632,6 +674,7 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel ColasZelda2;
     public static javax.swing.JLabel ColasZelda3;
     public static javax.swing.JLabel ColasZelda4;
+    public static javax.swing.JList<String> ListaGanadores;
     public static javax.swing.JLabel PuntosSF1;
     public static javax.swing.JLabel PuntosZ1;
     private javax.swing.JSlider SliderAITimer;
@@ -654,6 +697,7 @@ public class MainInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -666,6 +710,7 @@ public class MainInterfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     public static javax.swing.JLabel nombreSF;
     public static javax.swing.JLabel nombreZ;
     // End of variables declaration//GEN-END:variables
