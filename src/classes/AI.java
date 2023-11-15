@@ -104,14 +104,14 @@ public class AI {
         System.out.println("¡Combate terminado! El ganador es: " + winner.getName()
                 + " (ID: " + winner.getId() + ") con " + winnerPoints + " puntos únicos.");
         // logica para añadir a la lista de ganadores
-        MainInterfaz.agregarGanador(winner.getName()+winner.getId());
+        MainInterfaz.agregarGanador(winner.getName() + winner.getId());
     }
 
     private void handleWinnerStreetFighter(Character loser, Character winner, int loserPoints, int winnerPoints) {
         System.out.println("¡Combate terminado! El ganador es: " + winner.getName()
                 + " (ID: " + winner.getId() + ") con " + winnerPoints + " puntos únicos.");
         // logica para añadir a la lista de ganadores
-        MainInterfaz.agregarGanador(winner.getName()+winner.getId());
+        MainInterfaz.agregarGanador(winner.getName() + winner.getId());
     }
 
     private void handleDraw(Character character1, Character character2) {

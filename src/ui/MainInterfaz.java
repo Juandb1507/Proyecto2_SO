@@ -15,7 +15,9 @@ import javax.swing.JLabel;
  * @author Sebastian Rodriguez
  */
 public class MainInterfaz extends javax.swing.JFrame {
+
     public static DefaultListModel<String> modeloListaGanadores;
+
     /**
      * Creates new form MainInterfaz
      */
@@ -27,7 +29,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         cancelLabel.setVisible(false);
         modeloListaGanadores = new DefaultListModel<>();
         ListaGanadores.setModel(modeloListaGanadores);
-        
+
     }
 
     /**
@@ -657,7 +659,7 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static void setColasZelda4(JLabel ColasZelda4) {
         MainInterfaz.ColasZelda4 = ColasZelda4;
     }
-    
+
     public static void agregarGanador(String elemento) {
         modeloListaGanadores.addElement(elemento);
     }

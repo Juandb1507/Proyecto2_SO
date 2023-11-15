@@ -1,3 +1,7 @@
+## [1.0.24]2 - 15/11/2023 (Juandb1507)
+
+- Ajustes de tiempo y centrado
+
 ## [1.0.24] - 15/11/2023 (Juandb1507)
 
 - Lista de ganadores en UI.
