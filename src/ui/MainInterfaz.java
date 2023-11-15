@@ -76,6 +76,10 @@ public class MainInterfaz extends javax.swing.JFrame {
         AIState = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         empateLabel = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        ganadoresSF = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        ganadoresZelda = new javax.swing.JLabel();
         StreetFighterFondo = new javax.swing.JLabel();
         ZeldaFondo = new javax.swing.JLabel();
 
@@ -155,7 +159,7 @@ public class MainInterfaz extends javax.swing.JFrame {
 
         jPanel1.add(Colas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 270, 360));
 
-        Colas2.setBackground(new java.awt.Color(0, 0, 102));
+        Colas2.setBackground(new java.awt.Color(102, 0, 0));
         Colas2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ColasSF1.setBackground(new java.awt.Color(0, 0, 0));
@@ -218,7 +222,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         UniquePointsZelda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         UniquePointsZelda.setForeground(new java.awt.Color(255, 255, 255));
         UniquePointsZelda.setText("0");
-        jPanel2.add(UniquePointsZelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 50, 30));
+        jPanel2.add(UniquePointsZelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 50, 30));
 
         nombreZ.setBackground(new java.awt.Color(255, 255, 255));
         nombreZ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -259,7 +263,7 @@ public class MainInterfaz extends javax.swing.JFrame {
         AIState.setForeground(new java.awt.Color(255, 255, 255));
         AIState.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AIState.setText("CREANDO COLAS");
-        jPanel2.add(AIState, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 150, 50));
+        jPanel2.add(AIState, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 150, 50));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Timer (seg)");
@@ -270,6 +274,26 @@ public class MainInterfaz extends javax.swing.JFrame {
         jPanel2.add(empateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 80, 80));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 460, 450));
+
+        jPanel4.setBackground(new java.awt.Color(102, 0, 0));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ganadoresSF.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        ganadoresSF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ganadoresSF.setText("0");
+        jPanel4.add(ganadoresSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, 110, 70));
+
+        jPanel3.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ganadoresZelda.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        ganadoresZelda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ganadoresZelda.setText("0");
+        jPanel3.add(ganadoresZelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 110, 70));
 
         StreetFighterFondo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         StreetFighterFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/StreetFighterFondo.jpg"))); // NOI18N
@@ -384,6 +408,30 @@ public class MainInterfaz extends javax.swing.JFrame {
         StreetIMG.setIcon(new ImageIcon("src\\imgs\\" + name + ".jpg"));
         nombreSF.setText(name);
         UniquePointsSF.setText(Integer.toString(power));
+    }
+
+    public static void marcadorZelda(int puntaje) {
+        ganadoresZelda.setText(Integer.toString(puntaje));
+    }
+
+    public static void marcadorSF(int puntaje) {
+        ganadoresSF.setText(Integer.toString(puntaje));
+    }
+
+    public static JLabel getGanadoresSF() {
+        return ganadoresSF;
+    }
+
+    public static void setGanadoresSF(JLabel ganadoresSF) {
+        MainInterfaz.ganadoresSF = ganadoresSF;
+    }
+
+    public static JLabel getGanadoresZelda() {
+        return ganadoresZelda;
+    }
+
+    public static void setGanadoresZelda(JLabel ganadoresZelda) {
+        MainInterfaz.ganadoresZelda = ganadoresZelda;
     }
 
     // Método para colocar la corona sobre la imagen del personaje ganador
@@ -597,6 +645,8 @@ public class MainInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel coronaLabelSF;
     public static javax.swing.JLabel coronaLabelZ;
     public static javax.swing.JLabel empateLabel;
+    public static javax.swing.JLabel ganadoresSF;
+    public static javax.swing.JLabel ganadoresZelda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -606,6 +656,8 @@ public class MainInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
